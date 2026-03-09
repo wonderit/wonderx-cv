@@ -83,6 +83,9 @@ const translations = {
     sem_4_host: 'Korea Univ. FMBA',
     sem_4_name: 'From Talking AI to Working Agents',
     sem_4_desc: 'AI agent systems transforming enterprise workflows',
+    sem_5_host: 'SpartaCoding',
+    sem_5_name: 'How to Talk with Developers',
+    sem_5_desc: 'Communication skills for effective collaboration with developers',
 
     // Projects
     projects_title: 'Projects',
@@ -189,6 +192,9 @@ const translations = {
     sem_4_host: '고려대 FMBA',
     sem_4_name: '말하는 AI에서 일하는 에이전트로',
     sem_4_desc: '기업 워크플로우를 변화시키는 AI 에이전트 시스템',
+    sem_5_host: '스파르타창',
+    sem_5_name: '개발자와 대화하는 법',
+    sem_5_desc: '개발자와 효과적으로 소통하는 방법',
 
     // Projects
     projects_title: '프로젝트',

@@ -180,13 +180,22 @@
   // ─── Orbiting data nodes (representing AI processing) ───
   var orbitNodes = [];
   var NODE_COUNT = 12;
+  var nodeLabels = [
+    'AI Safety', 'Vision AI', 'Privacy ML', 'Deep Learning',
+    'Nanophotonics', 'Full-Stack', '3D Pose', 'Encryption',
+    'GAN Design', 'Biomedical', 'Segmentation', 'Edge AI'
+  ];
+
+  // Create HTML label container
+  var labelContainer = document.getElementById('nodeLabels');
+  var labelElements = [];
 
   for (var n = 0; n < NODE_COUNT; n++) {
-    var nodeGeo = new THREE.SphereGeometry(0.04, 8, 8);
+    var nodeGeo = new THREE.SphereGeometry(0.05, 8, 8);
     var nodeMat = new THREE.MeshBasicMaterial({
       color: 0xaaaaaa,
       transparent: true,
-      opacity: 0.5
+      opacity: 0.6
     });
     var node = new THREE.Mesh(nodeGeo, nodeMat);
     var orbitRadius = 2.0 + Math.random() * 0.5;
@@ -201,7 +210,23 @@
     };
     eyeGroup.add(node);
     orbitNodes.push(node);
+
+    // Create corresponding HTML label
+    if (labelContainer) {
+      var lbl = document.createElement('span');
+      lbl.className = 'node-label';
+      lbl.textContent = nodeLabels[n];
+      labelContainer.appendChild(lbl);
+      labelElements.push(lbl);
+    }
   }
+
+  // Vectors for world position projection (reused each frame)
+  var projVector = new THREE.Vector3();
+  var centerVector = new THREE.Vector3();
+  var LABEL_OFFSET = 20;
+  var cachedW = window.innerWidth;
+  var cachedH = window.innerHeight;
 
   // ─── Subtle grid plane ───
   var gridHelper = new THREE.GridHelper(40, 40, 0x1a1a1a, 0x1a1a1a);
@@ -233,9 +258,11 @@
 
   // ─── Resize ───
   function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    cachedW = window.innerWidth;
+    cachedH = window.innerHeight;
+    camera.aspect = cachedW / cachedH;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(cachedW, cachedH);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     particleMaterial.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
   }
@@ -322,7 +349,20 @@
     var pulseScale = 1 + Math.sin(elapsed * 0.8) * 0.15;
     pupil.scale.setScalar(pulseScale);
 
-    // Orbit data nodes
+    // Orbit data nodes + project labels to screen
+    var halfW = cachedW * 0.5;
+    var halfH = cachedH * 0.5;
+    var labelsVisible = scrollProgress > 0.02 && scrollProgress < 0.85;
+    var hasLabels = labelElements.length > 0;
+
+    // Only compute center projection once per frame
+    if (hasLabels) {
+      eyeGroup.getWorldPosition(centerVector);
+      centerVector.project(camera);
+    }
+    var cx = (centerVector.x * halfW) + halfW;
+    var cy = -(centerVector.y * halfH) + halfH;
+
     for (var on = 0; on < orbitNodes.length; on++) {
       var nd = orbitNodes[on];
       var ud = nd.userData;
@@ -330,6 +370,33 @@
       nd.position.x = Math.cos(ud.angle) * ud.radius;
       nd.position.y = Math.sin(ud.angle) * ud.radius + ud.tilt;
       nd.position.z = Math.sin(ud.angle * 0.5) * 0.3;
+
+      // Project label to screen
+      if (hasLabels) {
+        var lbl = labelElements[on];
+        var shouldShow = labelsVisible;
+
+        if (shouldShow) {
+          nd.getWorldPosition(projVector);
+          projVector.project(camera);
+          if (projVector.z >= 1) { shouldShow = false; }
+          else {
+            var sx = (projVector.x * halfW) + halfW;
+            var sy = -(projVector.y * halfH) + halfH;
+            var dx = sx - cx;
+            var dy = sy - cy;
+            var invDist = 1 / (Math.sqrt(dx * dx + dy * dy) || 1);
+            lbl.style.left = (sx + dx * invDist * LABEL_OFFSET) + 'px';
+            lbl.style.top = (sy + dy * invDist * LABEL_OFFSET) + 'px';
+          }
+        }
+
+        if (shouldShow) {
+          if (!lbl.classList.contains('visible')) lbl.classList.add('visible');
+        } else {
+          if (lbl.classList.contains('visible')) lbl.classList.remove('visible');
+        }
+      }
     }
 
     // Grid subtle animation
