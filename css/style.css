@@ -222,16 +222,16 @@ img {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background: rgba(8, 8, 8, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(8, 8, 8, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   z-index: 1000;
   transition: all var(--transition-med);
 }
 
 #navbar.scrolled {
-  background: rgba(8, 8, 8, 0.7);
+  background: rgba(8, 8, 8, 0.5);
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
