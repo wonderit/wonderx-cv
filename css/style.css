@@ -1087,6 +1087,16 @@ img {
   height: 14px;
 }
 
+.scholar-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color .2s;
+}
+.scholar-link:hover {
+  color: var(--accent);
+}
+
 /* ============================================
    Alternating Timeline (Experience & Seminars)
    ============================================ */
