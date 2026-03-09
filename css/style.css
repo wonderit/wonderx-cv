@@ -130,6 +130,7 @@ img {
   padding: 120px 0;
   position: relative;
   z-index: 2;
+  background: rgba(8, 8, 8, 0.75);
 }
 
 .section-title {
@@ -221,7 +222,7 @@ img {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background: rgba(8, 8, 8, 0.7);
+  background: rgba(8, 8, 8, 0.45);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -230,7 +231,7 @@ img {
 }
 
 #navbar.scrolled {
-  background: rgba(8, 8, 8, 0.95);
+  background: rgba(8, 8, 8, 0.7);
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -374,6 +375,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
   position: relative;
   overflow: hidden;
   padding: 0;
@@ -1089,6 +1091,7 @@ img {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   position: relative;
   z-index: 2;
+  background: rgba(8, 8, 8, 0.8);
 }
 
 #footer p {
