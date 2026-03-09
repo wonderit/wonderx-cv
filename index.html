@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wonsuk Kim - CTO at SAFE AI | AI Researcher | Full-Stack Engineer">
+  <meta name="author" content="Wonsuk Kim">
+  <title>Wonsuk Kim | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Full-page 3D background canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Scan line overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>WK<span class="logo-bracket">]</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+        <li><a href="#research" data-i18n="nav_research">Research</a></li>
+        <li><a href="#seminars" data-i18n="nav_seminars">Seminars</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#education" data-i18n="nav_education">Education</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        <li>
+          <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+            <span class="lang-option" data-lang="en">EN</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-option" data-lang="kr">KR</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="section hero-section">
+    <div class="hero-content">
+      <div class="glitch-wrapper">
+        <p class="hero-greeting" data-i18n="hero_greeting">Hello, I'm</p>
+      </div>
+      <h1 class="hero-name glitch" data-text="Wonsuk Kim" data-i18n="hero_name">Wonsuk Kim</h1>
+      <div class="hero-title-bar">
+        <span class="status-dot"></span>
+        <p class="hero-title" data-i18n="hero_title">CTO at SAFE AI | AI Researcher | Engineer</p>
+      </div>
+      <p class="hero-tagline" data-i18n="hero_tagline">Building AI that is safe, interpretable, and human-centered.</p>
+      <div class="hero-actions">
+        <a href="#about" class="hero-cta" data-i18n="hero_cta">Explore My Work</a>
+        <a href="#contact" class="hero-cta-ghost" data-i18n="hero_cta2">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="about_title">About</h2>
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="photo-frame">
+            <img src="assets/memoji.png" alt="Wonsuk Kim" class="photo-img">
+            <div class="photo-hud-corners">
+              <span class="corner tl"></span>
+              <span class="corner tr"></span>
+              <span class="corner bl"></span>
+              <span class="corner br"></span>
+            </div>
+          </div>
+          <div class="photo-label">
+            <span class="label-dot"></span>
+            <span>SYSTEM.OPERATOR</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-bio" data-i18n="about_bio">I'm a researcher and engineer working at the intersection of AI safety, computer vision, and privacy-preserving machine learning. Currently CTO at SAFE AI, I've spent over a decade building systems — from food delivery backends to nanophotonic inverse design models — and I believe the next decade should be defined by AI we can actually trust.</p>
+          <div class="about-facts">
+            <div class="fact-item">
+              <span class="fact-icon-hud">&gt;</span>
+              <div>
+                <strong data-i18n="about_location_label">Location</strong>
+                <p data-i18n="about_location">Seoul, South Korea</p>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon-hud">&gt;</span>
+              <div>
+                <strong data-i18n="about_email_label">Email</strong>
+                <p><a href="mailto:wonderit@safeai.kr">wonderit@safeai.kr</a></p>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon-hud">&gt;</span>
+              <div>
+                <strong data-i18n="about_degree_label">Degree</strong>
+                <p data-i18n="about_degree">Ph.D. & B.S. Electrical Engineering, Korea University</p>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon-hud">&gt;</span>
+              <div>
+                <strong>Instagram</strong>
+                <p><a href="https://instagram.com/won425" target="_blank" rel="noopener noreferrer">@won425</a></p>
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-icon-hud">&gt;</span>
+              <div>
+                <strong>Google Scholar</strong>
+                <p><a href="https://scholar.google.com/citations?hl=ko&user=cDN6v8AAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Wonsuk Kim</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="exp_title">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="marker-ping"></span></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2023.09 &mdash; Present</span>
+            <h3 class="timeline-role" data-i18n="exp_1_role">CTO</h3>
+            <p class="timeline-company" data-i18n="exp_1_company">SAFE AI, Seoul</p>
+            <p class="timeline-desc" data-i18n="exp_1_desc">Led Vision AI research and built AI safety research team</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2022.12 &mdash; 2023.03</span>
+            <h3 class="timeline-role" data-i18n="exp_2_role">Research Lead</h3>
+            <p class="timeline-company" data-i18n="exp_2_company">Entre-reality, Seoul</p>
+            <p class="timeline-desc" data-i18n="exp_2_desc">3D pose estimation research; motion sync between users and avatars</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2021.12 &mdash; 2022.12</span>
+            <h3 class="timeline-role" data-i18n="exp_3_role">Software Researcher</h3>
+            <p class="timeline-company" data-i18n="exp_3_company">Desilo, Seoul</p>
+            <p class="timeline-desc" data-i18n="exp_3_desc">Privacy-enhancing tech: homomorphic encryption & multi-party computation</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2021.01 &mdash; 2021.02</span>
+            <h3 class="timeline-role" data-i18n="exp_4_role">Research Intern</h3>
+            <p class="timeline-company" data-i18n="exp_4_company">Samsung Electronics</p>
+            <p class="timeline-desc" data-i18n="exp_4_desc">Deep learning model development using MaxwellFDFD</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2019.11 &mdash; 2020.09</span>
+            <h3 class="timeline-role" data-i18n="exp_5_role">Visiting PhD Student</h3>
+            <p class="timeline-company" data-i18n="exp_5_company">Broad Institute of MIT & Harvard</p>
+            <p class="timeline-desc" data-i18n="exp_5_desc">Collaborative ECG model training via multi-party computation</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2017.09 &mdash; 2019.08</span>
+            <h3 class="timeline-role" data-i18n="exp_6_role">Campus Ambassador</h3>
+            <p class="timeline-company" data-i18n="exp_6_company">JetBrains, Prague</p>
+            <p class="timeline-desc" data-i18n="exp_6_desc">Promoted JetBrains tools (PyCharm, IntelliJ) at Korea University</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2017.01 &mdash; 2017.05</span>
+            <h3 class="timeline-role" data-i18n="exp_7_role">Software Engineer</h3>
+            <p class="timeline-company" data-i18n="exp_7_company">Kakao Corp.</p>
+            <p class="timeline-desc" data-i18n="exp_7_desc">Back-end API for payment service & PG server</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2015.03 &mdash; 2016.02</span>
+            <h3 class="timeline-role" data-i18n="exp_8_role">Software Engineer</h3>
+            <p class="timeline-company" data-i18n="exp_8_company">Woowa Bros. (Baemin)</p>
+            <p class="timeline-desc" data-i18n="exp_8_desc">Back-end API for food delivery app & PG server</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2014.03 &mdash; 2015.03</span>
+            <h3 class="timeline-role" data-i18n="exp_9_role">Software Engineer</h3>
+            <p class="timeline-company" data-i18n="exp_9_company">SureM Co.</p>
+            <p class="timeline-desc" data-i18n="exp_9_desc">SMPP server & real-time Android messaging service</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card holo-card">
+            <span class="timeline-period">2012.12 &mdash; 2014.02</span>
+            <h3 class="timeline-role" data-i18n="exp_10_role">Software Engineer</h3>
+            <p class="timeline-company" data-i18n="exp_10_company">Autobrain</p>
+            <p class="timeline-desc" data-i18n="exp_10_desc">CRM web app for imported car dealers</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Publications Section -->
+  <section id="research" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="research_title">Research & Publications</h2>
+
+      <h3 class="subsection-title" data-i18n="research_journals">Journal Papers</h3>
+      <div class="pub-grid">
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge journal">Journal</span>
+            <span class="pub-year">2022</span>
+          </div>
+          <p class="pub-text">Kim, W., Kim, S., Lee, M., &amp; Seok, J. "Inverse design of nanophotonic devices using generative adversarial networks." <em>Engineering Applications of Artificial Intelligence</em> 115, 105259 (2022).</p>
+          <div class="pub-footer">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0952197622003232" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 32</span>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge journal">Journal</span>
+            <span class="pub-year">2020</span>
+          </div>
+          <p class="pub-text">Kim, W., &amp; Seok, J. "Simulation acceleration for transmittance of electromagnetic waves in 2D slit arrays using deep learning." <em>Scientific Reports</em> 10, 10535 (2020).</p>
+          <div class="pub-footer">
+            <a href="https://www.nature.com/articles/s41598-020-67545-x" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 19</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title" data-i18n="research_conferences">Conference Papers</h3>
+      <div class="pub-grid">
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2026</span>
+          </div>
+          <p class="pub-text">Kim, SR., Ryu, D., Hwang, D., Byeon, S., Lee, M., Kim, W. "K-Fold Ensemble of Hiera and VideoMAE for Illegal Waste Dumping Detection." <em>WACV 2026 Workshop</em>.</p>
+          <div class="pub-footer">
+            <a href="https://openaccess.thecvf.com/content/WACV2026W/WasteVision/html/Kim_K-Fold_Ensemble_of_Hiera_and_VideoMAE_for_Illegal_Waste_Dumping_WACVW_2026_paper.html" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 1</span>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2026</span>
+          </div>
+          <p class="pub-text">Son, J., Cha, J., Park, J., Kim, S., Kim, S., Kim, Y., Kim, W. "Robust Object Detection for Long-term Thermal Surveillance via Explicit Background Modeling." <em>WACV 2026 Workshop</em>.</p>
+          <div class="pub-footer">
+            <a href="https://openaccess.thecvf.com/content/WACV2026W/RWS/html/Son_Robust_Object_Detection_for_Long-term_Thermal_Surveillance_via_Explicit_Background_WACVW_2026_paper.html" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 1</span>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <p class="pub-text">Choi, R., Son, J., Kim, W. "Robust Out-of-Stock Detection by Localizing Products with Open-Vocabulary Models." <em>한국차세대컴퓨팅학회</em>, 296-299 (2025).</p>
+          <div class="pub-footer">
+            <a href="https://www.earticle.net/Article/A478518" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <p class="pub-text">Park, J., Kim, S., Kim, S., Cha, J., Kim, W., Kim, Y. "Siamese Network Based Contrastive Learning for Sealant Defect Detection." <em>한국차세대컴퓨팅학회</em>, 107-110 (2025).</p>
+          <div class="pub-footer">
+            <a href="https://www.earticle.net/Article/A478471" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <p class="pub-text">Seo, J., Hwang, HS., Lee, J., Lee, M., Kim, W., Seok, J. "A Multi-Stage Deep Learning Approach Incorporating Text-Image and Image-Image Comparisons for Cheapfake Detection." <em>ICMR 2024</em>, ACM.</p>
+          <div class="pub-footer">
+            <a href="https://dl.acm.org/doi/abs/10.1145/3652583.3657601" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 3</span>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2022</span>
+          </div>
+          <p class="pub-text">Kim, W., &amp; Seok, J. "Privacy-preserving collaborative machine learning in biomedical applications." <em>ICAIIC 2022</em>, IEEE.</p>
+          <div class="pub-footer">
+            <a href="https://ieeexplore.ieee.org/abstract/document/9722703" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 27</span>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2020</span>
+          </div>
+          <p class="pub-text">서장원, 김유중, 김원석, 김인수, 석준희. "Super Resolution 을 이용한 MaxwellFDFD 소자 모듈 특성 예측." <em>한국통신학회 학술대회논문집</em>, 64-65 (2020).</p>
+          <div class="pub-footer">
+            <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE10498412" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+          </div>
+        </div>
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge conference">Conference</span>
+            <span class="pub-year">2018</span>
+          </div>
+          <p class="pub-text">Kim, W., &amp; Seok, J. "Indoor Semantic Segmentation for Robot Navigating on Mobile." <em>ICUFN 2018</em>, IEEE.</p>
+          <div class="pub-footer">
+            <a href="https://ieeexplore.ieee.org/abstract/document/8436956" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+            <span class="pub-cite-count">Cited: 64</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title" data-i18n="research_patent">Patent</h3>
+      <div class="pub-grid">
+        <div class="pub-card holo-card">
+          <div class="pub-meta">
+            <span class="pub-badge patent">Patent</span>
+            <span class="pub-year">2023</span>
+          </div>
+          <p class="pub-text">Hong, J., Seok, J., Kim, W., Lee, K.I. "Inverse design system designing nano-optical device using controllable generative adversarial network and training and design methods." <em>US Patent App. 17/973,188</em> (2023).</p>
+          <div class="pub-footer">
+            <a href="https://patents.google.com/patent/US20230409781A1/en" target="_blank" rel="noopener noreferrer" class="pub-link"><svg class="pub-link-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seminars Section -->
+  <section id="seminars" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="seminars_title">Seminars</h2>
+      <div class="seminars-grid">
+
+        <a href="https://drive.google.com/file/d/1Y0WGPVP10vsr0cRRxMkDETtU6JU4nvk5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="seminar-card holo-card">
+          <div class="seminar-header">
+            <span class="seminar-host" data-i18n="sem_4_host">Korea Univ. FMBA</span>
+            <span class="seminar-date">2026.03</span>
+          </div>
+          <h3 class="seminar-name" data-i18n="sem_4_name">From Talking AI to Working Agents</h3>
+          <p class="seminar-desc" data-i18n="sem_4_desc">AI agent systems transforming enterprise workflows</p>
+          <div class="seminar-footer">
+            <svg class="seminar-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="seminar-file">PDF</span>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/10iBxa_tgAVj1kWmSqMfaFKEtnDJDar8K/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="seminar-card holo-card">
+          <div class="seminar-header">
+            <span class="seminar-host" data-i18n="sem_3_host">Korea Univ. FMBA</span>
+            <span class="seminar-date">2025.03</span>
+          </div>
+          <h3 class="seminar-name" data-i18n="sem_3_name">AI Transforming Finance</h3>
+          <p class="seminar-desc" data-i18n="sem_3_desc">Artificial intelligence reshaping the financial industry</p>
+          <div class="seminar-footer">
+            <svg class="seminar-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="seminar-file">PDF</span>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1vOprL4auF0OACUt5Up3EZNNNSsnP8Bgr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="seminar-card holo-card">
+          <div class="seminar-header">
+            <span class="seminar-host" data-i18n="sem_2_host">Hanyang Univ.</span>
+            <span class="seminar-date">2025.10</span>
+          </div>
+          <h3 class="seminar-name" data-i18n="sem_2_name">No-Code Tools & AI Development</h3>
+          <p class="seminar-desc" data-i18n="sem_2_desc">Hands-on practice with no-code tools and AI development</p>
+          <div class="seminar-footer">
+            <svg class="seminar-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="seminar-file">PDF</span>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1DonE7hUcrCtY6QsMyN01HEcjS9CdHRxG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="seminar-card holo-card">
+          <div class="seminar-header">
+            <span class="seminar-host" data-i18n="sem_1_host">Samsung C&T</span>
+            <span class="seminar-date">2025</span>
+          </div>
+          <h3 class="seminar-name" data-i18n="sem_1_name">Jira Best Practices</h3>
+          <p class="seminar-desc" data-i18n="sem_1_desc">Effective project management using Jira</p>
+          <div class="seminar-footer">
+            <svg class="seminar-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="seminar-file">PDF</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+      <div class="projects-grid">
+
+        <a href="https://github.com/wonderit/maxwellfdfd-controlgan" target="_blank" rel="noopener noreferrer" class="project-card holo-card">
+          <div class="project-header">
+            <svg class="project-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            <span class="project-lang">Python</span>
+          </div>
+          <h3 class="project-name">MaxwellFDFD-ControlGAN</h3>
+          <p class="project-desc" data-i18n="proj_1_desc">Inverse design of nanophotonic devices using GANs</p>
+        </a>
+
+        <a href="https://github.com/wonderit/display-ai-convergence" target="_blank" rel="noopener noreferrer" class="project-card holo-card">
+          <div class="project-header">
+            <svg class="project-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            <span class="project-lang">Python</span>
+          </div>
+          <h3 class="project-name">Display-AI-Convergence</h3>
+          <p class="project-desc" data-i18n="proj_2_desc">Display AI convergence talent training</p>
+        </a>
+
+        <a href="https://github.com/wonderit/maxwellfdfd-ai" target="_blank" rel="noopener noreferrer" class="project-card holo-card">
+          <div class="project-header">
+            <svg class="project-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            <span class="project-lang">Python</span>
+          </div>
+          <h3 class="project-name">MaxwellFDFD-AI</h3>
+          <p class="project-desc" data-i18n="proj_3_desc">EM wave simulation acceleration via deep learning</p>
+        </a>
+
+        <a href="https://github.com/wonderit/indoor-segmentation-android" target="_blank" rel="noopener noreferrer" class="project-card holo-card">
+          <div class="project-header">
+            <svg class="project-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            <span class="project-lang">Android</span>
+          </div>
+          <h3 class="project-name">Indoor-Segmentation-Android</h3>
+          <p class="project-desc" data-i18n="proj_4_desc">Indoor semantic segmentation app using DeepLabV3 + MobileNetV2</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="edu_title">Education</h2>
+      <div class="edu-timeline">
+
+        <div class="edu-item">
+          <div class="edu-marker"></div>
+          <div class="edu-card holo-card">
+            <span class="edu-period">2017 &mdash; 2023</span>
+            <h3 class="edu-degree" data-i18n="edu_1_degree">Ph.D. Electrical Engineering (CS)</h3>
+            <p class="edu-school" data-i18n="edu_1_school">Korea University</p>
+            <p class="edu-detail" data-i18n="edu_1_detail">Advisor: Prof. Junhee Seok</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-marker"></div>
+          <div class="edu-card holo-card">
+            <span class="edu-period">2009 &mdash; 2017</span>
+            <h3 class="edu-degree" data-i18n="edu_2_degree">B.S. Electrical Engineering</h3>
+            <p class="edu-school" data-i18n="edu_2_school">Korea University</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-marker"></div>
+          <div class="edu-card holo-card">
+            <span class="edu-period">2006 &mdash; 2009</span>
+            <h3 class="edu-degree" data-i18n="edu_3_degree">High School Diploma</h3>
+            <p class="edu-school" data-i18n="edu_3_school">Kyunggi High School</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+      <p class="contact-subtitle" data-i18n="contact_subtitle">Feel free to reach out for collaborations or just a friendly hello.</p>
+      <div class="contact-links">
+        <a href="mailto:wonderit@safeai.kr" class="contact-btn holo-card">
+          <span class="contact-icon">&#9993;</span>
+          <span>wonderit@safeai.kr</span>
+        </a>
+        <a href="https://instagram.com/won425" target="_blank" rel="noopener noreferrer" class="contact-btn holo-card">
+          <svg class="contact-icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://scholar.google.com/citations?hl=ko&user=cDN6v8AAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" class="contact-btn holo-card">
+          <svg class="contact-icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+          <span>Google Scholar</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <p data-i18n="footer_text">&copy; 2024 Wonsuk Kim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
+</body>
+</html>
