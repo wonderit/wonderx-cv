@@ -246,29 +246,29 @@
   var cachedW = window.innerWidth;
   var cachedH = window.innerHeight;
 
-  // ─── Ambient Glow Orbs (scroll-reactive) ───
+  // ─── Ambient Glow Orbs (scroll-reactive) — strong enough to show through sections ───
   // Top glow — cool blue-white
-  var topGlowTex = createGlowTexture(180, 200, 240, 0.5);
+  var topGlowTex = createGlowTexture(180, 200, 255, 1.0);
   var topGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: topGlowTex,
     transparent: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  topGlowSprite.scale.set(18, 18, 1);
-  topGlowSprite.position.set(0, 5, -10);
+  topGlowSprite.scale.set(28, 28, 1);
+  topGlowSprite.position.set(0, 4, -5);
   scene.add(topGlowSprite);
 
   // Bottom glow — warm amber accent
-  var bottomGlowTex = createGlowTexture(200, 160, 100, 0.25);
+  var bottomGlowTex = createGlowTexture(220, 170, 100, 0.7);
   var bottomGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: bottomGlowTex,
     transparent: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  bottomGlowSprite.scale.set(14, 14, 1);
-  bottomGlowSprite.position.set(3, -8, -8);
+  bottomGlowSprite.scale.set(22, 22, 1);
+  bottomGlowSprite.position.set(3, -6, -4);
   scene.add(bottomGlowSprite);
 
   // ─── Subtle grid plane ───
@@ -444,19 +444,19 @@
 
     // ─── Scroll-reactive glow orb positioning ───
     // Glow orbs follow the viewport as user scrolls through sections
-    var glowBaseY = 5 - scrollProgress * 18;
-    topGlowSprite.position.x = Math.sin(elapsed * 0.08) * 0.8 + Math.sin(scrollProgress * Math.PI * 2) * 2;
-    topGlowSprite.position.y = glowBaseY + Math.sin(elapsed * 0.12) * 0.4;
-    topGlowSprite.position.z = -10 + scrollProgress * 3;
+    var glowBaseY = 4 - scrollProgress * 16;
+    topGlowSprite.position.x = Math.sin(elapsed * 0.08) * 1.2 + Math.sin(scrollProgress * Math.PI * 2) * 3;
+    topGlowSprite.position.y = glowBaseY + Math.sin(elapsed * 0.12) * 0.5;
+    topGlowSprite.position.z = -5 + scrollProgress * 2;
 
-    var bottomGlowBaseY = -8 - scrollProgress * 12;
-    bottomGlowSprite.position.x = 3 + Math.cos(elapsed * 0.1) * 0.5 - Math.cos(scrollProgress * Math.PI) * 2;
-    bottomGlowSprite.position.y = bottomGlowBaseY + Math.cos(elapsed * 0.15) * 0.3;
-    bottomGlowSprite.position.z = -8 + scrollProgress * 2;
+    var bottomGlowBaseY = -6 - scrollProgress * 12;
+    bottomGlowSprite.position.x = 3 + Math.cos(elapsed * 0.1) * 0.8 - Math.cos(scrollProgress * Math.PI) * 2.5;
+    bottomGlowSprite.position.y = bottomGlowBaseY + Math.cos(elapsed * 0.15) * 0.4;
+    bottomGlowSprite.position.z = -4 + scrollProgress * 1.5;
 
-    // Glow intensity shifts with scroll
-    topGlowSprite.material.opacity = 0.8 + Math.sin(scrollProgress * Math.PI) * 0.2;
-    bottomGlowSprite.material.opacity = 0.6 + Math.cos(scrollProgress * Math.PI * 0.8) * 0.3;
+    // Glow intensity — fixed strong values
+    topGlowSprite.material.opacity = 1.0;
+    bottomGlowSprite.material.opacity = 0.9;
 
     // Grid subtle animation
     gridHelper.position.y = -5 + Math.sin(elapsed * 0.15) * 0.2;
