@@ -109,7 +109,7 @@ const translations = {
     contact_subtitle: 'Feel free to reach out for collaborations or just a friendly hello.',
 
     // Footer
-    footer_text: '\u00A9 2024 Wonsuk Kim. All rights reserved.'
+    footer_text: '\u00A9 2026 Wonsuk Kim. All rights reserved.'
   },
 
   kr: {
@@ -218,7 +218,7 @@ const translations = {
     contact_subtitle: '\uD611\uC5C5 \uC81C\uC548\uC774\uB098 \uC548\uBD80 \uC778\uC0AC \uD658\uC601\uD569\uB2C8\uB2E4.',
 
     // Footer
-    footer_text: '\u00A9 2024 \uAE40\uC6D0\uC11D. All rights reserved.'
+    footer_text: '\u00A9 2026 \uAE40\uC6D0\uC11D. All rights reserved.'
   }
 };
 

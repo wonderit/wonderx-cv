@@ -20,11 +20,8 @@
   <!-- Full-page 3D background canvas -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- Node label overlay (3D projected) -->
-  <div id="nodeLabels"></div>
-
-  <!-- Scan line overlay -->
-  <div class="scanlines"></div>
+  <!-- Hero ambient glow overlay -->
+  <div class="hero-glow"></div>
 
   <!-- Navigation -->
   <nav id="navbar">
@@ -62,7 +59,7 @@
       <div class="glitch-wrapper">
         <p class="hero-greeting" data-i18n="hero_greeting">Hello, I'm</p>
       </div>
-      <h1 class="hero-name glitch" data-text="Wonsuk Kim" data-i18n="hero_name">Wonsuk Kim</h1>
+      <h1 class="hero-name" data-i18n="hero_name">Wonsuk Kim</h1>
       <div class="hero-title-bar">
         <span class="status-dot"></span>
         <p class="hero-title" data-i18n="hero_title">CTO at SAFE AI | AI Researcher | Engineer</p>
@@ -86,51 +83,41 @@
         <div class="about-photo">
           <div class="photo-frame">
             <img src="assets/memoji.png" alt="Wonsuk Kim" class="photo-img">
-            <div class="photo-hud-corners">
-              <span class="corner tl"></span>
-              <span class="corner tr"></span>
-              <span class="corner bl"></span>
-              <span class="corner br"></span>
-            </div>
-          </div>
-          <div class="photo-label">
-            <span class="label-dot"></span>
-            <span>SYSTEM.OPERATOR</span>
           </div>
         </div>
         <div class="about-text">
           <p class="about-bio" data-i18n="about_bio">I'm a researcher and engineer working at the intersection of AI safety, computer vision, and privacy-preserving machine learning. Currently CTO at SAFE AI, I've spent over a decade building systems — from food delivery backends to nanophotonic inverse design models — and I believe the next decade should be defined by AI we can actually trust.</p>
           <div class="about-facts">
             <div class="fact-item">
-              <span class="fact-icon-hud">&gt;</span>
+              <span class="fact-icon-dot"></span>
               <div>
                 <strong data-i18n="about_location_label">Location</strong>
                 <p data-i18n="about_location">Seoul, South Korea</p>
               </div>
             </div>
             <div class="fact-item">
-              <span class="fact-icon-hud">&gt;</span>
+              <span class="fact-icon-dot"></span>
               <div>
                 <strong data-i18n="about_email_label">Email</strong>
                 <p><a href="mailto:wonderit@safeai.kr">wonderit@safeai.kr</a></p>
               </div>
             </div>
             <div class="fact-item">
-              <span class="fact-icon-hud">&gt;</span>
+              <span class="fact-icon-dot"></span>
               <div>
                 <strong data-i18n="about_degree_label">Degree</strong>
                 <p data-i18n="about_degree">Ph.D. & B.S. Electrical Engineering, Korea University</p>
               </div>
             </div>
             <div class="fact-item">
-              <span class="fact-icon-hud">&gt;</span>
+              <span class="fact-icon-dot"></span>
               <div>
                 <strong>Instagram</strong>
                 <p><a href="https://instagram.com/won425" target="_blank" rel="noopener noreferrer">@won425</a></p>
               </div>
             </div>
             <div class="fact-item">
-              <span class="fact-icon-hud">&gt;</span>
+              <span class="fact-icon-dot"></span>
               <div>
                 <strong>Google Scholar</strong>
                 <p><a href="https://scholar.google.com/citations?hl=ko&user=cDN6v8AAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Wonsuk Kim</a></p>
@@ -572,7 +559,7 @@
   <!-- Footer -->
   <footer id="footer">
     <div class="container">
-      <p data-i18n="footer_text">&copy; 2024 Wonsuk Kim. All rights reserved.</p>
+      <p data-i18n="footer_text">&copy; 2026 Wonsuk Kim. All rights reserved.</p>
     </div>
   </footer>
 
