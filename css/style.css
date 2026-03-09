@@ -706,122 +706,87 @@ img {
 }
 
 /* ============================================
-   Publications
+   Publications — Compact List
    ============================================ */
-.pub-grid {
-  display: grid;
-  gap: 16px;
+.pub-list {
   margin-bottom: 48px;
 }
 
-.pub-card {
-  padding: 24px 28px;
+.pub-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.pub-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+.pub-item:last-child {
+  border-bottom: none;
 }
 
-.pub-badge {
-  display: inline-block;
-  padding: 3px 12px;
-  border-radius: 4px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 12px;
-  font-family: var(--font-en);
-}
-
-.pub-badge.journal {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--accent);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pub-badge.conference {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--accent-dim);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.pub-if {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-family: monospace;
-  letter-spacing: 0.05em;
-}
-
-.pub-text {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.pub-text em {
+.pub-title {
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.pub-title a {
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.pub-title a:hover {
+  color: var(--accent-bright);
+}
+
+.pub-authors {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.pub-venue-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+}
+
+.pub-venue {
+  color: var(--accent-dim);
   font-style: italic;
 }
 
 .pub-year {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent-dim);
+  color: var(--text-muted);
   font-family: monospace;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
-.pub-badge.patent {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--accent-tag);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.pub-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-glow);
+.pub-dot {
+  color: var(--text-muted);
+  font-size: 0.5rem;
+  line-height: 1;
 }
 
 .pub-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   color: var(--accent-dim);
-  text-decoration: none;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   font-family: var(--font-en);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: color 0.3s;
+  transition: color var(--transition-fast);
 }
 
 .pub-link:hover {
   color: var(--accent-bright);
 }
 
-.pub-link-icon {
-  flex-shrink: 0;
-}
-
-.pub-cite-count {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--text-secondary);
+.pub-cite {
+  color: var(--text-muted);
   font-size: 0.7rem;
   font-family: monospace;
   letter-spacing: 0.03em;
