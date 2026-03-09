@@ -1066,6 +1066,180 @@ img {
 }
 
 /* ============================================
+   Publication Link Icons
+   ============================================ */
+.pub-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  vertical-align: middle;
+}
+
+.pub-link-icon:hover {
+  color: var(--accent-bright);
+}
+
+.pub-link-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   Alternating Timeline (Experience & Seminars)
+   ============================================ */
+.alt-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.alt-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent-dim), var(--accent-subtle), transparent);
+}
+
+.alt-year-label {
+  position: relative;
+  text-align: center;
+  margin-bottom: 16px;
+  z-index: 1;
+}
+
+.alt-year-label span {
+  display: inline-block;
+  background: var(--bg-primary);
+  padding: 4px 16px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--accent-dim);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  letter-spacing: 0.05em;
+}
+
+.alt-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.alt-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--accent-dim);
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: all var(--transition-med);
+}
+
+.alt-item:hover::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.alt-item.active::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.alt-item.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  transform: translateX(-50%);
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+.alt-item.alt-left {
+  justify-content: flex-start;
+}
+
+.alt-item.alt-left .alt-card {
+  text-align: right;
+}
+
+.alt-item.alt-right {
+  justify-content: flex-end;
+}
+
+.alt-card {
+  width: calc(50% - 32px);
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  transition: all var(--transition-med);
+}
+
+.alt-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.alt-period {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-family: monospace;
+}
+
+.alt-role {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 4px 0 2px;
+  letter-spacing: -0.01em;
+}
+
+.alt-company {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.alt-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Seminar timeline cards */
+.alt-sem-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.alt-sem-host {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 768px) {
@@ -1157,6 +1331,39 @@ img {
 
   .seminars-grid {
     grid-template-columns: 1fr;
+  }
+
+  .alt-timeline::before {
+    left: 8px;
+  }
+
+  .alt-year-label {
+    text-align: left;
+    padding-left: 28px;
+  }
+
+  .alt-item {
+    justify-content: flex-start !important;
+    padding-left: 36px;
+  }
+
+  .alt-item::before {
+    left: 8px;
+    transform: translateX(-50%);
+  }
+
+  .alt-item.active::after {
+    left: 8px;
+    transform: translateX(-50%);
+  }
+
+  .alt-item.alt-left .alt-card,
+  .alt-item.alt-right .alt-card {
+    text-align: left;
+  }
+
+  .alt-card {
+    width: 100%;
   }
 
   .edu-timeline {

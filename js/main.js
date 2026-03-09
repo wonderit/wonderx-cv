@@ -248,26 +248,26 @@
 
   // ─── Ambient Glow Orbs (scroll-reactive) — strong enough to show through sections ───
   // Top glow — cool blue-white
-  var topGlowTex = createGlowTexture(180, 200, 255, 0.7);
+  var topGlowTex = createGlowTexture(180, 200, 255, 0.55);
   var topGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: topGlowTex,
     transparent: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  topGlowSprite.scale.set(24, 24, 1);
+  topGlowSprite.scale.set(21, 21, 1);
   topGlowSprite.position.set(0, 4, -5);
   scene.add(topGlowSprite);
 
   // Bottom glow — warm amber accent
-  var bottomGlowTex = createGlowTexture(220, 170, 100, 0.45);
+  var bottomGlowTex = createGlowTexture(220, 170, 100, 0.35);
   var bottomGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: bottomGlowTex,
     transparent: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  bottomGlowSprite.scale.set(18, 18, 1);
+  bottomGlowSprite.scale.set(15, 15, 1);
   bottomGlowSprite.position.set(3, -6, -4);
   scene.add(bottomGlowSprite);
 
@@ -455,8 +455,8 @@
     bottomGlowSprite.position.z = -4 + scrollProgress * 1.5;
 
     // Glow intensity — fixed strong values
-    topGlowSprite.material.opacity = 0.85;
-    bottomGlowSprite.material.opacity = 0.7;
+    topGlowSprite.material.opacity = 0.7;
+    bottomGlowSprite.material.opacity = 0.55;
 
     // Grid subtle animation
     gridHelper.position.y = -5 + Math.sin(elapsed * 0.15) * 0.2;
