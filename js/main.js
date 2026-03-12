@@ -255,7 +255,7 @@
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  topGlowSprite.scale.set(21, 21, 1);
+  topGlowSprite.scale.set(28, 28, 1);
   topGlowSprite.position.set(0, 4, -5);
   scene.add(topGlowSprite);
 
@@ -267,7 +267,7 @@
     blending: THREE.AdditiveBlending,
     depthWrite: false
   }));
-  bottomGlowSprite.scale.set(15, 15, 1);
+  bottomGlowSprite.scale.set(22, 22, 1);
   bottomGlowSprite.position.set(3, -6, -4);
   scene.add(bottomGlowSprite);
 
@@ -454,9 +454,9 @@
     bottomGlowSprite.position.y = bottomGlowBaseY + Math.cos(elapsed * 0.15) * 0.4;
     bottomGlowSprite.position.z = -4 + scrollProgress * 1.5;
 
-    // Glow intensity — fixed strong values
-    topGlowSprite.material.opacity = 0.7;
-    bottomGlowSprite.material.opacity = 0.55;
+    // Glow intensity — stronger to show through semi-transparent sections
+    topGlowSprite.material.opacity = 0.85;
+    bottomGlowSprite.material.opacity = 0.7;
 
     // Grid subtle animation
     gridHelper.position.y = -5 + Math.sin(elapsed * 0.15) * 0.2;
