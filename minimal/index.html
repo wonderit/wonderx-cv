@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>김원석 · CV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
+<style>
+  :root{
+    --ink: #111418;
+    --body: #2a2f36;
+    --muted: #6b7280;
+    --line: #d8dadd;
+    --line-strong: #1a1d22;
+    --accent: #1f2a44; /* deep navy */
+    --bg: #ffffff;
+    --page-w: 210mm;
+    --page-h: 297mm;
+    --page-pad-y: 16mm;
+    --page-pad-x: 18mm;
+    --label-tracking: 0.18em;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; padding:0; background:#eceef1; }
+  body{
+    font-family: "Pretendard", "Inter", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--body);
+    font-size: 10.5pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11", "tnum";
+  }
+
+  /* Screen: emulate A4 sheet */
+  .sheet{
+    width: var(--page-w);
+    min-height: var(--page-h);
+    margin: 24px auto;
+    padding: var(--page-pad-y) var(--page-pad-x);
+    background: var(--bg);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 32px rgba(15, 20, 30, .08);
+    color: var(--body);
+    position: relative;
+  }
+
+  /* Typographic primitives */
+  .num, .yr{
+    font-family: "Inter", "IBM Plex Sans", "Pretendard", sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "ss01" 1;
+  }
+  a{
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color .12s, border-color .12s;
+  }
+  a:hover{ color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Inline reference link — subtle arrow indicator */
+  a.ref{
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    margin-left: 4px;
+    background: rgba(31, 42, 68, 0.06);
+    border-radius: 2px;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+  a.ref:hover{
+    background: var(--accent);
+    color: #fff;
+    border-bottom-color: transparent;
+  }
+  a.ref::after{ content: " ↗"; font-size: 7pt; opacity: .7; }
+
+  /* ── Header ────────────────────────────────────────────────────────── */
+  header.masthead{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    padding-bottom: 10mm;
+    border-bottom: 1px solid var(--line-strong);
+    margin-bottom: 6mm;
+  }
+  .name{
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 34pt;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+  .name .en{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 13pt;
+    letter-spacing: 0;
+    margin-left: 10px;
+    vertical-align: 0.18em;
+  }
+  .role{
+    color: var(--ink);
+    font-size: 11pt;
+    font-weight: 500;
+    margin: 0;
+  }
+  .role .sep{ color: var(--line); margin: 0 8px; font-weight: 400; }
+  .role .accent{ color: var(--accent); }
+
+  .contact{
+    text-align: right;
+    color: var(--ink);
+    font-size: 9pt;
+    line-height: 1.55;
+    font-style: normal;
+  }
+  .contact .row{ display:block; }
+  .contact .row + .row{ margin-top: 2px; }
+  .contact .label{
+    display: inline-block;
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: var(--label-tracking);
+    width: 34px;
+    text-align: left;
+    margin-right: 6px;
+  }
+  .contact a{ border-bottom-color: transparent; }
+  .contact a:hover{ border-bottom-color: var(--accent); }
+
+  /* ── Section primitives ────────────────────────────────────────────── */
+  section.block{
+    padding: 4mm 0 3mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  section.block + section.block{ border-top: 1px solid var(--line); }
+
+  .block-head{
+    display: grid;
+    grid-template-columns: 36mm 1fr;
+    gap: 0;
+    align-items: baseline;
+    margin-bottom: 4mm;
+  }
+  .label{
+    font-family: "Inter", sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--label-tracking);
+    color: var(--accent);
+  }
+  .label .num-tag{
+    color: var(--muted);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  .label-ko{
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 11pt;
+    letter-spacing: -0.005em;
+  }
+  .label-ko .meta{
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 9.5pt;
+    margin-left: 8px;
+  }
+
+  /* ── Summary ───────────────────────────────────────────────────────── */
+  .summary{
+    font-size: 10.5pt;
+    color: var(--ink);
+    line-height: 1.55;
+    max-width: 150mm;
+    margin: 0;
+  }
+  .summary strong{ color: var(--ink); font-weight: 600; }
+
+  /* ── Row list (year + content) ─────────────────────────────────────── */
+  .rows{
+    display: grid;
+    grid-template-columns: 36mm 1fr;
+    row-gap: 2.5mm;
+    column-gap: 0;
+  }
+  .rows .yr{
+    color: var(--muted);
+    font-size: 9pt;
+    letter-spacing: 0;
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+  .rows .item .head{
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 10.5pt;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .rows .item .sub{
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 9.5pt;
+  }
+  .rows .item .desc{
+    color: var(--muted);
+    font-size: 9.5pt;
+    line-height: 1.45;
+    margin-top: 1px;
+  }
+  .rows .item .desc .role-tag{
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .dot{
+    display: inline-block;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--line);
+    vertical-align: 3px;
+    margin: 0 7px;
+  }
+
+  /* ── Two-column blocks ─────────────────────────────────────────────── */
+  .twocol{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10mm;
+    row-gap: 3mm;
+  }
+  .twocol .col-head{
+    font-family: "Inter", sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--label-tracking);
+    color: var(--muted);
+    margin-bottom: 3mm;
+  }
+  .twocol .col-head .count{
+    color: var(--accent);
+    margin-left: 6px;
+  }
+
+  ul.plain{ list-style: none; padding: 0; margin: 0; }
+  ul.plain li{
+    color: var(--body);
+    font-size: 9.5pt;
+    line-height: 1.5;
+    padding: 1.5px 0;
+  }
+  ul.plain li .yr{ color: var(--muted); font-size: 8.5pt; margin-right: 8px; }
+  ul.plain li .name-em{ color: var(--ink); font-weight: 600; }
+  ul.plain li .meta-sub{ color: var(--muted); font-size: 8.5pt; }
+
+  /* ── R&D grants ────────────────────────────────────────────────────── */
+  .grants{
+    display: grid;
+    grid-template-columns: 30mm 1fr 18mm 22mm;
+    column-gap: 5mm;
+    row-gap: 0;
+    font-size: 9.5pt;
+  }
+  .grants .gh{
+    font-family: "Inter", sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--label-tracking);
+    color: var(--muted);
+    padding: 0 0 5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .grants .gh.right{ text-align: right; }
+  .grants .row-cell{
+    padding: 4.5px 0;
+    border-bottom: 1px dashed var(--line);
+    line-height: 1.4;
+  }
+  .grants .row-cell.right{ text-align: right; font-variant-numeric: tabular-nums; }
+  .grants .agency{ color: var(--muted); font-size: 8.5pt; }
+  .grants .agency strong{ color: var(--ink); font-weight: 600; font-size: 9pt; display:block; }
+  .grants .title{ color: var(--ink); font-weight: 600; }
+  .grants .title .period{
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 8.5pt;
+    margin-top: 1px;
+    font-variant-numeric: tabular-nums;
+  }
+  .grants .budget{ color: var(--ink); font-weight: 600; padding-top: 5px; }
+  .grants .budget .unit{ color: var(--muted); font-weight: 400; font-size: 8.5pt; margin-left: 1px; }
+  .grants .role{
+    color: var(--muted);
+    font-size: 8.5pt;
+    padding-top: 5px;
+    line-height: 1.35;
+  }
+  .grants .role .lead{ color: var(--accent); font-weight: 600; }
+  .grants .role .note{ display: block; color: var(--muted); font-size: 8pt; margin-top: 1px; }
+
+  .grants-foot{
+    margin-top: 3mm;
+    font-family: "Inter", sans-serif;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-align: right;
+  }
+
+  /* ── Publications ──────────────────────────────────────────────────── */
+  .pub-rows{
+    display: grid;
+    grid-template-columns: 26mm 1fr;
+    row-gap: 2mm;
+  }
+  .pub-rows .yr{
+    color: var(--muted);
+    font-size: 9pt;
+    padding-top: 1px;
+    white-space: nowrap;
+  }
+  .pub-rows .pub{
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  .pub-rows .pub .venue{ color: var(--ink); font-weight: 600; }
+  .pub-rows .pub .venue .meta{ color: var(--muted); font-weight: 400; font-size: 8.5pt; margin-left: 4px; }
+  .pub-rows .pub .title{ color: var(--body); display: block; margin-top: 1px; }
+
+  .pub-group-head{
+    grid-column: 1 / -1;
+    font-family: "Inter", sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--label-tracking);
+    color: var(--accent);
+    padding: 3mm 0 1mm;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 1mm;
+  }
+  .pub-group-head:first-child{ padding-top: 0; }
+
+  /* Footnote / footer */
+  .colophon{
+    margin-top: 6mm;
+    padding-top: 4mm;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 8pt;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Print ────────────────────────────────────────────────────────── */
+  @page{
+    size: A4 portrait;
+    margin: 12mm 14mm;
+  }
+  @media print{
+    html, body{ background:#fff; }
+    .sheet{
+      width: auto;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    /* All links: strip color, keep underline */
+    a{
+      color: inherit !important;
+      border-bottom: 1px solid #777 !important;
+      text-decoration: none;
+      background: transparent !important;
+    }
+    a.ref{
+      color: inherit !important;
+      background: transparent !important;
+      padding: 0;
+      margin-left: 4px;
+      border-bottom: 1px solid #777 !important;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    a.ref::after{ content: ""; }
+    .contact a{ border-bottom: 1px solid #777 !important; }
+    section.block,
+    .rows, .grants, .twocol, .pub-rows{
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .grants .row-cell, .rows > *, .pub-rows > *{
+      page-break-inside: avoid;
+    }
+    header.masthead{ position: static; }
+  }
+</style>
+</head>
+<body>
+
+<main class="sheet">
+
+  <!-- HEADER -->
+  <header class="masthead">
+    <div>
+      <h1 class="name">김원석<span class="en">Wonsuk Kim</span></h1>
+      <p class="role">
+        <span class="accent">CTO</span> @ SAFE AI
+        <span class="sep">/</span>
+        AI Researcher
+      </p>
+    </div>
+    <address class="contact">
+      <span class="row"><span class="label">Mail</span><a href="mailto:wonderit@safeai.kr">wonderit@safeai.kr</a></span>
+      <span class="row"><span class="label">Tel</span><span class="num">+82 10 3938 5725</span></span>
+      <span class="row"><span class="label">Base</span>서울 송파구</span>
+    </address>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">01</span>Profile</div>
+      <div class="label-ko">한 줄 소개</div>
+    </div>
+    <p class="summary">
+      <strong>AI Safety · Computer Vision · Privacy-Preserving ML</strong> 연구자.
+      SAFE AI에서 정부 R&amp;D <span class="num">8건</span>을 기술 책임으로 수행 중.
+    </p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">02</span>Education</div>
+      <div class="label-ko">학력</div>
+    </div>
+    <div class="rows">
+      <div class="yr num">2017 — 2023</div>
+      <div class="item">
+        <div class="head">고려대학교 전기전자공학 <span class="sub">Ph.D. (Computer Science)</span></div>
+        <div class="desc">지도교수 석준희</div>
+      </div>
+
+      <div class="yr num">2009 — 2017</div>
+      <div class="item">
+        <div class="head">고려대학교 전기전자공학 <span class="sub">B.S.</span></div>
+      </div>
+
+      <div class="yr num">2006 — 2009</div>
+      <div class="item">
+        <div class="head">경기고등학교</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">03</span>Experience</div>
+      <div class="label-ko">경력</div>
+    </div>
+    <div class="rows">
+      <div class="yr num">2023.09 — 현재</div>
+      <div class="item">
+        <div class="head">SAFE AI <span class="sub">CTO</span></div>
+        <div class="desc"><span class="role-tag">Vision AI · AI Safety 연구 총괄</span></div>
+      </div>
+
+      <div class="yr num">2022.12 — 2023.03</div>
+      <div class="item">
+        <div class="head">Entre-reality <span class="sub">Research Lead</span></div>
+        <div class="desc">3D Pose Estimation</div>
+      </div>
+
+      <div class="yr num">2021.12 — 2022.12</div>
+      <div class="item">
+        <div class="head">Desilo <span class="sub">Software Researcher</span></div>
+        <div class="desc">동형암호(HE) · Multi-Party Computation</div>
+      </div>
+
+      <div class="yr num">2021.01 — 2021.02</div>
+      <div class="item">
+        <div class="head">삼성전자 <span class="sub">Research Intern</span></div>
+      </div>
+
+      <div class="yr num">2019.11 — 2020.09</div>
+      <div class="item">
+        <div class="head">Broad Institute of MIT &amp; Harvard <span class="sub">Visiting Ph.D.</span></div>
+      </div>
+
+      <div class="yr num">2017.09 — 2019.08</div>
+      <div class="item">
+        <div class="head">JetBrains <span class="sub">Campus Ambassador</span></div>
+      </div>
+
+      <div class="yr num">2017.01 — 2017.05</div>
+      <div class="item">
+        <div class="head">카카오 <span class="sub">Software Engineer</span></div>
+      </div>
+
+      <div class="yr num">2015.03 — 2016.02</div>
+      <div class="item">
+        <div class="head">우아한형제들 (배달의민족) <span class="sub">SWE · 산업기능요원</span></div>
+      </div>
+
+      <div class="yr num">2014.03 — 2015.03</div>
+      <div class="item">
+        <div class="head">슈어엠 <span class="sub">SWE · 산업기능요원</span></div>
+      </div>
+
+      <div class="yr num">2012.12 — 2014.02</div>
+      <div class="item">
+        <div class="head">오토브레인 <span class="sub">SWE · 산업기능요원</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNMENT R&D GRANTS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">04</span>Government R&amp;D</div>
+      <div class="label-ko">정부 R&amp;D 과제 <span class="meta">8건 · 당사 할당 기준</span></div>
+    </div>
+
+    <div class="grants">
+      <div class="gh">부처 / 기관</div>
+      <div class="gh">과제 / 수행기간</div>
+      <div class="gh right">할당</div>
+      <div class="gh right">역할</div>
+
+      <div class="row-cell agency"><strong>산업부</strong>KIPoT</div>
+      <div class="row-cell title">AI 능동형 순찰 플랫폼
+        <span class="period">2025.07 — 2029.12 · 공동</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">16</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">기술책임</span></div>
+
+      <div class="row-cell agency"><strong>과기정통부</strong>IITP</div>
+      <div class="row-cell title">복합 딥페이크 탐지 · 심층 분석
+        <span class="period">2026.04 — 2029.12 · 공동</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">10</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">공동연구책임</span></div>
+
+      <div class="row-cell agency"><strong>조달청</strong>한국조달연구원</div>
+      <div class="row-cell title">건축현장 실시간 안전관리 플랫폼
+        <span class="period">2025.07 — 2027.06 · 주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">8</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">주관연구책임</span></div>
+
+      <div class="row-cell agency"><strong>과기정통부</strong>연구개발특구</div>
+      <div class="row-cell title">동선 무결성 인증 · 사후 수사 분석
+        <span class="period">2026.04 — 2027.12 · 단독주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">5.25</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">단독주관</span></div>
+
+      <div class="row-cell agency"><strong>중기부</strong>TIPA</div>
+      <div class="row-cell title">중소제조 산재예방 모니터링
+        <span class="period">2025.10 — 2027.09 · 주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">4.6</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">주관</span></div>
+
+      <div class="row-cell agency"><strong>중기부</strong>TIPA</div>
+      <div class="row-cell title">실리콘 실란트 공정검사 AI
+        <span class="period">2024.07 — 2026.12 · 단독주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">3.27</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">단독주관</span></div>
+
+      <div class="row-cell agency"><strong>중기부</strong>TIPA</div>
+      <div class="row-cell title">사출물 품질 모니터링 AI
+        <span class="period">2024.10 — 2026.09 · 주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">2.9</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">주관연구책임</span></div>
+
+      <div class="row-cell agency"><strong>과기정통부</strong>IITP</div>
+      <div class="row-cell title">마약사범 추적·검거 AI 기술
+        <span class="period">2024.04 — 2026.12 · 공동</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">2.64</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">기술책임</span></div>
+
+    </div>
+  </section>
+
+  <!-- PATENTS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">05</span>Patents</div>
+      <div class="label-ko">특허 <span class="meta">SAFE AI 13건 출원 · 전건 PCT · 2건 등록</span></div>
+    </div>
+
+    <div class="twocol">
+      <div>
+        <div class="col-head">SAFE AI <span class="count num">13</span></div>
+        <ul class="plain">
+          <li><span class="name-em">안전 · 위험 예측</span> <span class="yr num">7건</span> <span class="meta-sub">· 2건 등록</span></li>
+          <li><span class="name-em">프라이버시 · 연합학습</span> <span class="yr num">2건</span></li>
+          <li><span class="name-em">딥페이크 · 생성</span> <span class="yr num">4건</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-head">Ph.D. 시절 <span class="count">GAN · Nanophotonics</span></div>
+        <ul class="plain">
+          <li>
+            <span class="name-em">GAN 기반 나노광학 역설계</span>
+            <a class="ref" href="https://patents.google.com/patent/US20230409781A1/en" target="_blank" rel="noopener">US20230409781A1</a>
+          </li>
+          <li><span class="yr">KR 등록</span><span class="num">10-2023-0172138</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">06</span>Publications</div>
+      <div class="label-ko">논문</div>
+    </div>
+
+    <div class="pub-rows">
+
+      <div class="pub-group-head">International</div>
+
+      <div class="yr num">2026</div>
+      <div class="pub">
+        <span class="venue">WACV Workshop <span class="meta">· WasteVision</span></span>
+        <span class="title">K-Fold Ensemble of Hiera and VideoMAE for Illegal Waste Dumping Detection
+          <a class="ref" href="https://openaccess.thecvf.com/content/WACV2026W/WasteVision/html/Kim_K-Fold_Ensemble_of_Hiera_and_VideoMAE_for_Illegal_Waste_Dumping_WACVW_2026_paper.html" target="_blank" rel="noopener">Paper</a>
+        </span>
+      </div>
+
+      <div class="yr num">2026</div>
+      <div class="pub">
+        <span class="venue">WACV Workshop <span class="meta">· RWS</span></span>
+        <span class="title">Robust Object Detection for Long-term Thermal Surveillance via Explicit Background
+          <a class="ref" href="https://openaccess.thecvf.com/content/WACV2026W/RWS/html/Son_Robust_Object_Detection_for_Long-term_Thermal_Surveillance_via_Explicit_Background_WACVW_2026_paper.html" target="_blank" rel="noopener">Paper</a>
+        </span>
+      </div>
+
+      <div class="yr num">2024</div>
+      <div class="pub">
+        <span class="venue">ICMR <span class="meta">· ACM</span></span>
+        <span class="title">Multi-Stage Deep Learning for Cheapfake Detection
+          <a class="ref" href="https://dl.acm.org/doi/abs/10.1145/3652583.3657601" target="_blank" rel="noopener">DOI</a>
+        </span>
+      </div>
+
+      <div class="yr num">2018</div>
+      <div class="pub">
+        <span class="venue">ICUFN <span class="meta">· IEEE, Prague</span></span>
+        <span class="title">Indoor Semantic Segmentation for Robot Navigating on Mobile
+          <a class="ref" href="https://ieeexplore.ieee.org/abstract/document/8436956" target="_blank" rel="noopener">IEEE</a>
+        </span>
+      </div>
+
+      <div class="yr num">2018</div>
+      <div class="pub">
+        <span class="venue">ICNGC <span class="meta">· Vung Tau</span></span>
+        <span class="title">A Survey of Image Inpainting with GANs</span>
+      </div>
+
+      <div class="yr num">2017</div>
+      <div class="pub">
+        <span class="venue">ICNGC <span class="meta">· Kaohsiung</span></span>
+        <span class="title">Scene Recognition for Indoor Navigation by using CNN on Mobile</span>
+      </div>
+
+      <div class="pub-group-head">Journals &amp; Domestic</div>
+
+      <div class="yr num">2022</div>
+      <div class="pub">
+        <span class="venue">Engineering Applications of AI <span class="meta">· IF 7.8</span></span>
+        <span class="title">Inverse Design of Nanophotonic Devices using GANs
+          <a class="ref" href="https://www.sciencedirect.com/science/article/abs/pii/S0952197622003232" target="_blank" rel="noopener">Elsevier</a>
+        </span>
+      </div>
+
+      <div class="yr num">2022</div>
+      <div class="pub">
+        <span class="venue">ICAIIC <span class="meta">· IEEE</span></span>
+        <span class="title">Privacy-Preserving Collaborative ML in Biomedical Applications
+          <a class="ref" href="https://ieeexplore.ieee.org/abstract/document/9722703" target="_blank" rel="noopener">IEEE</a>
+        </span>
+      </div>
+
+      <div class="yr num">2020</div>
+      <div class="pub">
+        <span class="venue">Scientific Reports <span class="meta">· IF 4.4</span></span>
+        <span class="title">Simulation Acceleration for EM Waves in 2D Slit Arrays using Deep Learning
+          <a class="ref" href="https://www.nature.com/articles/s41598-020-67545-x" target="_blank" rel="noopener">Nature</a>
+        </span>
+      </div>
+
+      <div class="yr num">2025</div>
+      <div class="pub">
+        <span class="venue">한국차세대컴퓨팅학회</span>
+        <span class="title">Robust Out-of-Stock Detection with Open-Vocabulary Models
+          <a class="ref" href="https://www.earticle.net/Article/A478518" target="_blank" rel="noopener">earticle</a>
+        </span>
+      </div>
+
+      <div class="yr num">2025</div>
+      <div class="pub">
+        <span class="venue">한국차세대컴퓨팅학회</span>
+        <span class="title">Siamese Contrastive Learning for Sealant Defect Detection
+          <a class="ref" href="https://www.earticle.net/Article/A478471" target="_blank" rel="noopener">earticle</a>
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">07</span>Invited Talks</div>
+      <div class="label-ko">강연</div>
+    </div>
+    <div class="rows">
+      <div class="yr num">2026.03</div>
+      <div class="item">
+        <div class="head">고려대 FMBA
+          <span class="sub">From Talking AI to Working Agents</span>
+          <a class="ref" href="https://drive.google.com/file/d/1Y0WGPVP10vsr0cRRxMkDETtU6JU4nvk5/view?usp=sharing" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </div>
+
+      <div class="yr num">2025.10</div>
+      <div class="item">
+        <div class="head">한양대
+          <span class="sub">No-Code Tools &amp; AI Development</span>
+          <a class="ref" href="https://drive.google.com/file/d/1vOprL4auF0OACUt5Up3EZNNNSsnP8Bgr/view?usp=sharing" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </div>
+
+      <div class="yr num">2025.03</div>
+      <div class="item">
+        <div class="head">고려대 FMBA
+          <span class="sub">AI Transforming Finance</span>
+          <a class="ref" href="https://drive.google.com/file/d/10iBxa_tgAVj1kWmSqMfaFKEtnDJDar8K/view?usp=sharing" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </div>
+
+      <div class="yr num">2025</div>
+      <div class="item">
+        <div class="head">삼성물산
+          <span class="sub">Jira Best Practices</span>
+          <a class="ref" href="https://drive.google.com/file/d/1DonE7hUcrCtY6QsMyN01HEcjS9CdHRxG/view?usp=sharing" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </div>
+
+      <div class="yr num">2023.05</div>
+      <div class="item">
+        <div class="head">스파르타코딩
+          <span class="sub">How to Talk with Developers</span>
+          <a class="ref" href="https://drive.google.com/file/d/1YHJ8HoI5Ja7WhE7rXLRd5MU76ZBZn4XU/view?usp=sharing" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING + AWARDS (two-up) -->
+  <section class="block">
+    <div class="block-head">
+      <div class="label"><span class="num-tag">08</span>Teaching &amp; Awards</div>
+      <div class="label-ko">강의 · 수상</div>
+    </div>
+
+    <div class="twocol">
+      <div>
+        <div class="col-head">Teaching Assistant <span class="count" style="color:var(--muted); font-weight:500;">· 고려대</span></div>
+        <ul class="plain">
+          <li>
+            <span class="yr num">2021 Fall</span>
+            <span class="name-em">ECE403</span> Engineering Design II
+            <span class="meta-sub">· 곽진태 교수</span>
+          </li>
+          <li>
+            <span class="yr num">2021 Spring</span>
+            <span class="name-em">ECE403</span> Engineering Design I
+            <span class="meta-sub">· 김운경 교수</span>
+          </li>
+          <li>
+            <span class="yr num">2017, 2018 Fall</span>
+            <span class="name-em">ECE446</span> Internet Programming
+            <span class="meta-sub">· 석준희 교수</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-head">Awards</div>
+        <ul class="plain">
+          <li>
+            <span class="yr num">2016 Spring</span>
+            <span class="name-em">고려대학교 졸업논문상</span>
+            <span class="meta-sub">· 소프트웨어 부문</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <span>김원석 · Curriculum Vitae</span>
+    <span>Updated 2026.05</span>
+  </footer>
+
+</main>
+
+</body>
+</html>
