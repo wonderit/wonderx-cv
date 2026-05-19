@@ -19,8 +19,8 @@
     --bg: #ffffff;
     --page-w: 210mm;
     --page-h: 297mm;
-    --page-pad-y: 16mm;
-    --page-pad-x: 18mm;
+    --page-pad-y: 13mm;
+    --page-pad-x: 16mm;
     --label-tracking: 0.18em;
   }
 
@@ -29,8 +29,8 @@
   body{
     font-family: "Pretendard", "Inter", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--body);
-    font-size: 10.5pt;
-    line-height: 1.5;
+    font-size: 9.8pt;
+    line-height: 1.42;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-feature-settings: "ss01", "cv11", "tnum";
@@ -92,17 +92,17 @@
     grid-template-columns: 1fr auto;
     align-items: end;
     gap: 24px;
-    padding-bottom: 10mm;
+    padding-bottom: 6mm;
     border-bottom: 1px solid var(--line-strong);
-    margin-bottom: 6mm;
+    margin-bottom: 4mm;
   }
   .name{
     color: var(--ink);
     font-weight: 700;
-    font-size: 34pt;
+    font-size: 28pt;
     line-height: 1;
     letter-spacing: -0.02em;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
   }
   .name .en{
     font-family: "Inter", sans-serif;
@@ -147,19 +147,21 @@
 
   /* ── Section primitives ────────────────────────────────────────────── */
   section.block{
-    padding: 4mm 0 3mm;
+    padding: 3mm 0 2.5mm;
     page-break-inside: avoid;
     break-inside: avoid;
   }
   section.block + section.block{ border-top: 1px solid var(--line); }
 
   .block-head{
-    display: grid;
-    grid-template-columns: 36mm 1fr;
-    gap: 0;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: baseline;
-    margin-bottom: 4mm;
+    column-gap: 10mm;
+    margin-bottom: 2.5mm;
   }
+  .block-head .label{ flex: 0 0 auto; min-width: 36mm; }
+  .block-head .label-ko{ flex: 1 1 auto; min-width: 0; }
   .label{
     font-family: "Inter", sans-serif;
     font-size: 8pt;
@@ -167,6 +169,7 @@
     text-transform: uppercase;
     letter-spacing: var(--label-tracking);
     color: var(--accent);
+    white-space: nowrap;
   }
   .label .num-tag{
     color: var(--muted);
@@ -200,7 +203,7 @@
   .rows{
     display: grid;
     grid-template-columns: 36mm 1fr;
-    row-gap: 2.5mm;
+    row-gap: 1.5mm;
     column-gap: 0;
   }
   .rows .yr{
@@ -251,6 +254,10 @@
     column-gap: 10mm;
     row-gap: 3mm;
   }
+  .twocol.teaching-awards{
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: 0;
+  }
   .twocol .col-head{
     font-family: "Inter", sans-serif;
     font-size: 8pt;
@@ -272,6 +279,13 @@
     line-height: 1.5;
     padding: 1.5px 0;
   }
+  ul.plain.teaching-list li{
+    display: grid;
+    grid-template-columns: 30mm 1fr;
+    column-gap: 4mm;
+    align-items: baseline;
+  }
+  ul.plain.teaching-list li .yr{ margin-right: 0; }
   ul.plain li .yr{ color: var(--muted); font-size: 8.5pt; margin-right: 8px; }
   ul.plain li .name-em{ color: var(--ink); font-weight: 600; }
   ul.plain li .meta-sub{ color: var(--muted); font-size: 8.5pt; }
@@ -296,9 +310,9 @@
   }
   .grants .gh.right{ text-align: right; }
   .grants .row-cell{
-    padding: 4.5px 0;
+    padding: 3px 0;
     border-bottom: 1px dashed var(--line);
-    line-height: 1.4;
+    line-height: 1.35;
   }
   .grants .row-cell.right{ text-align: right; font-variant-numeric: tabular-nums; }
   .grants .agency{ color: var(--muted); font-size: 8.5pt; }
@@ -336,7 +350,7 @@
   .pub-rows{
     display: grid;
     grid-template-columns: 26mm 1fr;
-    row-gap: 2mm;
+    row-gap: 1.2mm;
   }
   .pub-rows .yr{
     color: var(--muted);
@@ -360,16 +374,25 @@
     text-transform: uppercase;
     letter-spacing: var(--label-tracking);
     color: var(--accent);
-    padding: 3mm 0 1mm;
+    padding: 2mm 0 1mm;
     border-bottom: 1px solid var(--line);
     margin-bottom: 1mm;
+  }
+  .pub-group-head .ko-sub{
+    font-family: "Pretendard", sans-serif;
+    text-transform: none;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 9.5pt;
+    margin-left: 10px;
   }
   .pub-group-head:first-child{ padding-top: 0; }
 
   /* Footnote / footer */
   .colophon{
-    margin-top: 6mm;
-    padding-top: 4mm;
+    margin-top: 4mm;
+    padding-top: 3mm;
     border-top: 1px solid var(--line);
     color: var(--muted);
     font-size: 8pt;
@@ -382,7 +405,7 @@
   /* ── Print ────────────────────────────────────────────────────────── */
   @page{
     size: A4 portrait;
-    margin: 12mm 14mm;
+    margin: 10mm 12mm;
   }
   @media print{
     html, body{ background:#fff; }
@@ -452,7 +475,7 @@
     </div>
     <p class="summary">
       <strong>AI Safety · Computer Vision · Privacy-Preserving ML</strong> 연구자.
-      SAFE AI에서 정부 R&amp;D <span class="num">8건</span>을 기술 책임으로 수행 중.
+      SAFE AI에서 정부 R&amp;D <span class="num">10건</span>·당사 할당 연구비 약 <span class="num">57억</span>을 기술 책임으로 수행 중.
     </p>
   </section>
 
@@ -547,7 +570,7 @@
   <section class="block">
     <div class="block-head">
       <div class="label"><span class="num-tag">04</span>Government R&amp;D</div>
-      <div class="label-ko">정부 R&amp;D 과제 <span class="meta">8건 · 당사 할당 기준</span></div>
+      <div class="label-ko">정부 R&amp;D 과제 <span class="meta">10건 · 약 <span class="num">57억</span> · 당사 할당 기준</span></div>
     </div>
 
     <div class="grants">
@@ -612,6 +635,20 @@
       <div class="row-cell right budget"><span class="num">2.64</span><span class="unit">억</span></div>
       <div class="row-cell right role"><span class="lead">기술책임</span></div>
 
+      <div class="row-cell agency"><strong>과기정통부</strong>KISA</div>
+      <div class="row-cell title">2025 AI 보안 유망기업 · 칩페이크 기반 안티스푸핑 얼굴인식
+        <span class="period">2025.05 — 2025.11 · 단독주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">2.5</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">주관연구책임</span></div>
+
+      <div class="row-cell agency"><strong>과기정통부</strong>KISA</div>
+      <div class="row-cell title">AI보안 시제품 · 칩페이크 탐지 AI 보험 클레임 이상탐지 시제품 개발
+        <span class="period">2024.06 — 2024.11 · 주관</span>
+      </div>
+      <div class="row-cell right budget"><span class="num">2</span><span class="unit">억</span></div>
+      <div class="row-cell right role"><span class="lead">주관연구책임</span></div>
+
     </div>
   </section>
 
@@ -648,12 +685,12 @@
   <section class="block">
     <div class="block-head">
       <div class="label"><span class="num-tag">06</span>Publications</div>
-      <div class="label-ko">논문</div>
+      <div class="label-ko">학회 및 논문</div>
     </div>
 
     <div class="pub-rows">
 
-      <div class="pub-group-head">International</div>
+      <div class="pub-group-head">International <span class="ko-sub">국제 학회 및 저널</span></div>
 
       <div class="yr num">2026</div>
       <div class="pub">
@@ -679,28 +716,6 @@
         </span>
       </div>
 
-      <div class="yr num">2018</div>
-      <div class="pub">
-        <span class="venue">ICUFN <span class="meta">· IEEE, Prague</span></span>
-        <span class="title">Indoor Semantic Segmentation for Robot Navigating on Mobile
-          <a class="ref" href="https://ieeexplore.ieee.org/abstract/document/8436956" target="_blank" rel="noopener">IEEE</a>
-        </span>
-      </div>
-
-      <div class="yr num">2018</div>
-      <div class="pub">
-        <span class="venue">ICNGC <span class="meta">· Vung Tau</span></span>
-        <span class="title">A Survey of Image Inpainting with GANs</span>
-      </div>
-
-      <div class="yr num">2017</div>
-      <div class="pub">
-        <span class="venue">ICNGC <span class="meta">· Kaohsiung</span></span>
-        <span class="title">Scene Recognition for Indoor Navigation by using CNN on Mobile</span>
-      </div>
-
-      <div class="pub-group-head">Journals &amp; Domestic</div>
-
       <div class="yr num">2022</div>
       <div class="pub">
         <span class="venue">Engineering Applications of AI <span class="meta">· IF 7.8</span></span>
@@ -725,6 +740,16 @@
         </span>
       </div>
 
+      <div class="yr num">2018</div>
+      <div class="pub">
+        <span class="venue">ICUFN <span class="meta">· IEEE, Prague</span></span>
+        <span class="title">Indoor Semantic Segmentation for Robot Navigating on Mobile
+          <a class="ref" href="https://ieeexplore.ieee.org/abstract/document/8436956" target="_blank" rel="noopener">IEEE</a>
+        </span>
+      </div>
+
+      <div class="pub-group-head">Domestic <span class="ko-sub">국내 학회 및 저널</span></div>
+
       <div class="yr num">2025</div>
       <div class="pub">
         <span class="venue">한국차세대컴퓨팅학회</span>
@@ -739,6 +764,18 @@
         <span class="title">Siamese Contrastive Learning for Sealant Defect Detection
           <a class="ref" href="https://www.earticle.net/Article/A478471" target="_blank" rel="noopener">earticle</a>
         </span>
+      </div>
+
+      <div class="yr num">2018</div>
+      <div class="pub">
+        <span class="venue">ICNGC <span class="meta">· Vung Tau</span></span>
+        <span class="title">A Survey of Image Inpainting with GANs</span>
+      </div>
+
+      <div class="yr num">2017</div>
+      <div class="pub">
+        <span class="venue">ICNGC <span class="meta">· Kaohsiung</span></span>
+        <span class="title">Scene Recognition for Indoor Navigation by using CNN on Mobile</span>
       </div>
 
     </div>
@@ -800,24 +837,21 @@
       <div class="label-ko">강의 · 수상</div>
     </div>
 
-    <div class="twocol">
+    <div class="twocol teaching-awards">
       <div>
         <div class="col-head">Teaching Assistant <span class="count" style="color:var(--muted); font-weight:500;">· 고려대</span></div>
-        <ul class="plain">
+        <ul class="plain teaching-list">
           <li>
             <span class="yr num">2021 Fall</span>
-            <span class="name-em">ECE403</span> Engineering Design II
-            <span class="meta-sub">· 곽진태 교수</span>
+            <span><span class="name-em">ECE403</span> Engineering Design II <span class="meta-sub">· 곽진태 교수</span></span>
           </li>
           <li>
             <span class="yr num">2021 Spring</span>
-            <span class="name-em">ECE403</span> Engineering Design I
-            <span class="meta-sub">· 김운경 교수</span>
+            <span><span class="name-em">ECE403</span> Engineering Design I <span class="meta-sub">· 김운경 교수</span></span>
           </li>
           <li>
             <span class="yr num">2017, 2018 Fall</span>
-            <span class="name-em">ECE446</span> Internet Programming
-            <span class="meta-sub">· 석준희 교수</span>
+            <span><span class="name-em">ECE446</span> Internet Programming <span class="meta-sub">· 석준희 교수</span></span>
           </li>
         </ul>
       </div>
