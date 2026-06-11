@@ -86,6 +86,9 @@ const translations = {
     sem_5_host: 'SpartaCoding',
     sem_5_name: 'How to Talk with Developers',
     sem_5_desc: 'Communication skills for effective collaboration with developers',
+    sem_6_host: 'Univ. of Seoul',
+    sem_6_name: 'AI Marketing Research — From Talking AI to Working Agents',
+    sem_6_desc: 'LLM principles to no-code AI tools for marketing research (경영학부 마케팅조사론)',
 
     // Projects
     projects_title: 'Projects',
@@ -195,6 +198,9 @@ const translations = {
     sem_5_host: '스파르타창',
     sem_5_name: '개발자와 대화하는 법',
     sem_5_desc: '개발자와 효과적으로 소통하는 방법',
+    sem_6_host: '서울시립대학교',
+    sem_6_name: 'AI 시대의 마케팅 조사',
+    sem_6_desc: 'LLM 원리부터 노코딩 AI 도구까지 — 경영학부 마케팅조사론',
 
     // Projects
     projects_title: '프로젝트',
