@@ -1235,6 +1235,49 @@ img {
   line-height: 1.5;
 }
 
+/* Experience intro / narrative line */
+.exp-intro {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin: -8px 0 28px;
+  text-align: center;
+}
+
+/* Sub-list inside the Ph.D. card (during-PhD activities) */
+.alt-sublist-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+.alt-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.alt-sublist li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding: 4px 0 4px 14px;
+  position: relative;
+}
+.alt-sublist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
 /* Seminar timeline cards */
 .alt-sem-title {
   font-size: 0.95rem;
