@@ -41,6 +41,9 @@ const translations = {
     exp_3_role: 'Software Engineer',
     exp_3_company: 'Woowa Bros. (Baemin)',
     exp_3_desc: 'Alternative military service — Autobrain → SureM → Woowa Bros.; back-end API, payment / PG servers, MSA migration',
+    exp_4_role: 'Software Engineer',
+    exp_4_company: 'Kakao Corp., Seongnam',
+    exp_4_desc: 'Backend development for Kakao billing system',
 
     // Research
     research_title: 'Research & Publications',
@@ -139,6 +142,9 @@ const translations = {
     exp_3_role: 'Software Engineer',
     exp_3_company: 'Woowa Bros. (Baemin)',
     exp_3_desc: '산업기능요원 기간 — 오토브레인 → 슈어엠 → 우아한형제들; 백엔드 API · 결제/PG 서버 · MSA 전환',
+    exp_4_role: 'Software Engineer',
+    exp_4_company: 'Kakao Corp., 성남',
+    exp_4_desc: '카카오 빌링 시스템 백엔드 개발',
 
     // Research
     research_title: '\uC5F0\uAD6C \uBC0F \uB17C\uBB38',
