@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JYP CTO Staff 과제 — 사촌형 피드백 & 질문 노트</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17181a;          /* near-black */
+    --ink-2:#3d4046;
+    --ink-3:#6b6f76;
+    --paper:#faf9f6;        /* off-white */
+    --line:#e2e0d9;
+    --line-2:#c9c6bd;
+    --accent:#1477c6;       /* Blue Garage 계열, 절제해서 1개만 */
+    --dead:#a9a69c;         /* 죽은 것 = 바랜 회색 */
+    --warn:#b4472e;
+    --wash:#f2f0ea;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Pretendard","Pretendard Variable",-apple-system,system-ui,sans-serif;
+    font-size:16px; line-height:1.72; word-break:keep-all; letter-spacing:-.003em;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:64px 32px 120px}
+  header.doc{border-bottom:2px solid var(--ink); padding-bottom:22px; margin-bottom:8px}
+  .kicker{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
+  h1{font-size:30px; line-height:1.25; margin:.35em 0 .1em; letter-spacing:-.02em}
+  .sub{color:var(--ink-2); font-size:15px}
+  .meta{color:var(--ink-3); font-size:13px; margin-top:10px}
+  section{margin-top:52px}
+  h2{
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+    font-weight:800; margin:0 0 4px; display:flex; align-items:baseline; gap:10px;
+  }
+  h2 .num{color:var(--line-2); font-weight:800}
+  h2::after{content:""; flex:1; height:1px; background:var(--line); align-self:center}
+  .h2title{font-size:22px; letter-spacing:-.02em; color:var(--ink); margin:2px 0 18px; font-weight:700}
+  h3{font-size:16.5px; margin:26px 0 6px; letter-spacing:-.01em}
+  p{margin:.5em 0}
+  .lead{font-size:17px; color:var(--ink-2)}
+  strong{font-weight:700}
+  .accent{color:var(--accent); font-weight:700}
+  .nowrap{white-space:nowrap}
+  em.mark{font-style:normal; background:linear-gradient(transparent 62%, #ffe08a 62% 92%, transparent 92%); font-weight:600}
+  ul,ol{margin:.5em 0; padding-left:0; list-style:none}
+  li{position:relative; padding-left:20px; margin:.34em 0}
+  ul li::before{content:""; position:absolute; left:2px; top:.72em; width:5px; height:5px; background:var(--ink-3); border-radius:50%}
+  ol{counter-reset:q}
+  ol.q>li{counter-increment:q; padding-left:34px; margin:.7em 0}
+  ol.q>li::before{content:"Q" counter(q); position:absolute; left:0; top:.05em; font-size:12px; font-weight:800; color:var(--accent); letter-spacing:.02em}
+  /* top-rule 패널: 배경 없이 상단 hairline */
+  .panel{border-top:1px solid var(--line-2); padding-top:14px; margin:20px 0}
+  .panel .tag{font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
+  .take{border-top:2px solid var(--ink); padding-top:12px; margin:26px 0}
+  .take .tag{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--warn); font-weight:800}
+  .take p{font-size:17px; margin:.3em 0 0}
+  /* 표 */
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px}
+  th,td{text-align:left; padding:10px 12px; vertical-align:top; border-bottom:1px solid var(--line)}
+  thead th{border-bottom:1.5px solid var(--ink-2); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3)}
+  td.dead{color:var(--dead)}
+  td.win{color:var(--ink)}
+  .win b{color:var(--accent)}
+  /* 피드백 요청 카드 = top-rule */
+  .ask{border-top:1px solid var(--line-2); padding:14px 0 4px; margin:6px 0}
+  .ask .lbl{font-size:12.5px; font-weight:800; color:var(--ink); letter-spacing:-.01em}
+  .ask .ctx{color:var(--ink-2); font-size:14.5px; margin:.2em 0}
+  .ask .want{color:var(--accent); font-size:13.5px; font-weight:600; margin-top:.2em}
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:6px 34px}
+  @media(max-width:680px){.cols{grid-template-columns:1fr}}
+  .stat{display:flex; gap:14px; align-items:baseline; border-top:1px solid var(--line); padding:11px 0}
+  .stat .big{font-size:21px; font-weight:800; letter-spacing:-.02em; min-width:132px}
+  .stat .big.pos{color:var(--accent)}
+  .stat .big.neg{color:var(--dead)}
+  .stat .desc{color:var(--ink-2); font-size:14.5px}
+  .foot{margin-top:64px; border-top:1px solid var(--line); padding-top:16px; font-size:12.5px; color:var(--ink-3)}
+  .foot a{color:var(--ink-3)}
+  .foot li{padding-left:16px}
+  .foot li::before{top:.62em; width:4px; height:4px; background:var(--line-2)}
+  .callnote{font-size:13.5px; color:var(--warn); font-weight:600}
+  @media print{
+    body{background:#fff; font-size:12pt}
+    .wrap{max-width:none; padding:0 8mm}
+    section{break-inside:avoid}
+    .ask,.stat,tr,.take,.panel{break-inside:avoid}
+    a{color:inherit; text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <div class="kicker">JYP CTO Staff · PT 과제 리뷰 노트</div>
+  <h1>사촌형한테 물어볼 것 &amp; 봐줬으면 하는 것</h1>
+  <p class="sub">기술을 활용한 엔터 사업 확장·시너지 전략 (10분 PT) — 업계 안에서 본 시선으로 크로스체크.</p>
+  <p class="meta">준비: 김원석 · 2026.07 · 이 문서 하나로 (1) 과제 맥락 30초 파악 → (2) 봐줬으면 하는 포인트 → (3) 궁금한 것 → (4) 내가 조사한 시장 사실</p>
+</header>
+
+<!-- ───────────────────────── 0 ───────────────────────── -->
+<section>
+  <h2><span class="num">00</span> 형한테 먼저 — 3줄 맥락</h2>
+  <p class="lead">JYP 기술 관련 스태프 포지션에 지원했고, 과제가 <strong>"기술로 엔터 사업을 어떻게 확장·시너지 낼지"</strong> 10분 발표임. 형이 엔터테크(특히 버추얼·HYBE 쪽) 안에서 직접 경험했으니, <span class="accent">내 방향이 현실적으로 말이 되는지</span>를 제일 듣고 싶음.</p>
+  <div class="take">
+    <div class="tag">내가 낸 결론 한 줄</div>
+    <p>“<em class="mark">기술을 전면에 세우면 하이프와 함께 시들고, 경험(소속감)에 닿을 때 산다</em>” — 그래서 VR·버추얼·NFT 같은 <strong>보여주는 기술</strong>이 아니라, AI·데이터를 <strong>안 보이게 뒤에서</strong> 써서 <span class="accent">‘팬과 팬을 잇는 소속감’</span>을 판다.</p>
+  </div>
+  <p class="callnote">※ 형 이력 확인 부탁: HYBE <strong>IM</strong>(리듬하이브·인더섬 만드는 게임 자회사)이었는지, 아니면 버추얼 아이돌 만든 <strong>Supertone</strong> 쪽이었는지? 그리고 “<span class="nowrap">오디션으로 뽑아서 운영</span>”한 게 맞는지 — 내가 찾은 HYBE 버추얼 걸그룹(신디에잇)은 오디션이 아니라 <span class="nowrap">100% AI 합성</span>이라 이 부분이 안 맞아서, 형이 말한 프로젝트가 그거 맞는지부터 확인하고 싶음.</p>
+</section>
+
+<!-- ───────────────────────── 1 ───────────────────────── -->
+<section>
+  <h2><span class="num">01</span> 과제 핵심 — 형이 1분에 파악하게</h2>
+  <div class="h2title">덱 한 장 요약</div>
+  <ul>
+    <li><strong>훅:</strong> 내가 VR 콘서트·음성합성·웹 메타버스·NFT 멤버십을 <em class="mark">직접 만들고 써보며</em> 다 실패해봄 → “기술이 목적이면 죽는다”를 몸으로 배움.</li>
+    <li><strong>리프레임:</strong> 표면 기술(VR·Web3·가상아티스트)은 팬에게 진입장벽과 ‘가짜’를 요구함. 순서를 뒤집어 <span class="nowrap">AI·데이터</span>를 <strong>뒤에서</strong> 돌린다.</li>
+    <li><strong>테제:</strong> JYP를 콘텐츠 회사 → <span class="accent">‘소속’ 플랫폼</span>으로. 정성적 연결에 데이터의 확신을 더함.</li>
+    <li><strong>JYP 현 위치:</strong> ‘플랫폼 부재’가 아니라 <strong>‘미완의 내재화’</strong> — 이미 Blue&nbsp;Garage가 팬 앱(FANS)·커머스(JYP&nbsp;SHOP)·AI 아티스트를 갖고 있음. 빠진 건 그 위의 <span class="nowrap">‘연결·수익화 레이어’</span>.</li>
+    <li><strong>제안(3단계):</strong>
+      <ul>
+        <li>Phase 1 · <strong>개인화</strong> — ‘나를 아는 AI 아티스트’ (이건 Blue&nbsp;Garage가 이미 만드는 중, 내 몫 아님)</li>
+        <li>Phase 2 · <strong>연결</strong> — 그 AI가 <span class="nowrap">취향 맞는 다른 팬</span>을 이어줌 (아티스트→팬 1:N을 넘어 <span class="nowrap">팬↔팬</span>)</li>
+        <li>Phase 3 · <strong>공간</strong> — IP 세계관 <strong>방탈출</strong>에서 오프라인으로 완성·수익화 (VR의 정반대: 헤드셋 없이 사람·촉각으로 몰입)</li>
+      </ul>
+    </li>
+    <li><strong>실행:</strong> 내가 다 소유·운영하겠다가 아니라 — 발굴 → 데이터 검증 → 작은 프로토타입 → Blue&nbsp;Garage·레이블에 <span class="nowrap">연결</span>. 초상권·라이선스·AI기본법 리스크까지 같이 설계.</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────── 2 ───────────────────────── -->
+<section>
+  <h2><span class="num">02</span> 여기를 특히 봐줘 — 피드백 요청</h2>
+  <div class="h2title">현업 감각으로 “이건 순진하다” 싶은 데를 찍어줘</div>
+
+  <div class="ask">
+    <div class="lbl">① 팬↔팬 연결, 진짜 수요가 있나</div>
+    <p class="ctx">내 Phase 2의 핵심 가정임. Weverse·Berriz 다 ‘아티스트→팬’ 방송(1:N)이고, 팬끼리 취향으로 잇는 건 공백이라 봤는데 — 현장에서 팬들은 <strong>아티스트와의 연결</strong>만 원하지 <span class="nowrap">‘옆 팬’</span>엔 관심 없을 수도.</p>
+    <p class="want">→ 팬 커뮤니티 운영해본 감으로, 팬↔팬 매칭에 지갑이 열릴 것 같아? 어디서 깨질까?</p>
+  </div>
+
+  <div class="ask">
+    <div class="lbl">② 방탈출(오프라인 공간)이 CTO 스태프가 할 일이 맞나</div>
+    <p class="ctx">Phase 3가 제일 튐. CAPEX·운영 무겁고 “그건 사업개발/공간팀 일 아니냐”는 반박이 예상됨. 나는 <span class="nowrap">파일럿 1실 프로토타입 → 무거우면 디지털 트윈</span>으로 방어하려 함.</p>
+    <p class="want">→ 이게 기술 스태프 제안으로 설득력 있어, 아니면 발표에선 <span class="nowrap">Phase 2까지만</span> 밀고 3은 비전으로 살짝 걸치는 게 나아?</p>
+  </div>
+
+  <div class="ask">
+    <div class="lbl">③ AI 음성 반발(엔씨 유니버스 프라이빗콜 사례)을 어떻게 넘길까</div>
+    <p class="ctx">아이돌 AI 음성 통화가 “기괴하다”고 팬 반발로 접힌 전례가 있음. 나는 “자사 소속이라 <strong>진짜 소통</strong>과 연결되면 산다”로 답할 생각인데, 형이 <span class="nowrap">신디에잇</span> 근처에서 봤다면 <span class="nowrap">‘가짜’ 거부감의 실제 결</span>이 궁금.</p>
+    <p class="want">→ 팬이 AI 음성을 거부한 진짜 이유가 품질(불쾌한 골짜기)이었어, 아니면 <span class="nowrap">‘진짜가 아니라서’</span>라는 정서 자체였어?</p>
+  </div>
+
+  <div class="ask">
+    <div class="lbl">④ 논지의 등뼈 — “진짜 vs 합성” 프레임이 과장인가</div>
+    <p class="ctx">내 발표 전체가 “팬은 진짜를 원한다”에 기댐. 근데 <strong>플레이브·이세계아이돌</strong>(뒤에 진짜 사람)은 대박, <strong>신디에잇</strong>(순수 AI)은 고전 — 이 대비가 내 논지를 그대로 증명해준다고 봤음(§04 참고).</p>
+    <p class="want">→ 이 대비, 업계 안에서도 그렇게 읽혀? 아니면 신디에잇은 그냥 <span class="nowrap">‘표절 논란·완성도’</span> 때문이지 ‘AI라서’가 아니었어?</p>
+  </div>
+
+  <div class="ask">
+    <div class="lbl">⑤ JYP 내부 사정 — 내가 헛다리 짚은 데</div>
+    <p class="ctx">FANS·JYP&nbsp;SHOP·AI 아티스트(Blue&nbsp;Garage)를 “이미 있는 조각”으로 전제하고 <span class="nowrap">그 위의 레이어</span>를 제안함. 회사 실제 우선순위·조직 역학을 내가 밖에서 잘못 읽었을 수 있음.</p>
+    <p class="want">→ HYBE에서 본 시각으로, JYP 테크 조직의 실제 병목은 뭘 것 같아? (사람·데이터·의사결정 중)</p>
+  </div>
+</section>
+
+<!-- ───────────────────────── 3 ───────────────────────── -->
+<section>
+  <h2><span class="num">03</span> 형한테 궁금한 것 — 엔터테크 전략 질문</h2>
+  <div class="h2title">면접 전에 ‘안에서 본 진실’을 듣고 싶은 것들</div>
+
+  <h3>A. 먼저 확인 (2분)</h3>
+  <ol class="q">
+    <li>형 있던 데가 정확히 어느 팀이었어? (HYBE IM=게임 / Supertone=버추얼·음성 / 레이블) 그리고 “오디션 뽑아서 운영”한 그 프로젝트 이름이 뭐야 — 신디에잇 맞아, 아니면 다른 거야?</li>
+    <li>그 프로젝트에서 형이 실제로 맡은 역할이 뭐였어? (기획 / 운영 / 기술 / 사업)</li>
+  </ol>
+
+  <h3>B. 버추얼 아이돌 운영 실전</h3>
+  <ol class="q">
+    <li>버추얼 아이돌 하나 운영하는 데 진짜 돈·사람이 어디에 제일 많이 드는지? (모델링·모션캡처·라이브 운영·CG 중)</li>
+    <li>“<span class="nowrap">100% AI</span> vs <span class="nowrap">아바타 뒤에 진짜 사람</span>” — 운영자 입장에서 결정적 차이가 뭐야? 팬 반응이 실제로 갈렸어?</li>
+    <li>신디에잇이 기대만큼 안 됐다면, <strong>안에서 진단한 진짜 원인</strong>이 뭐였어? 그리고 안에서는 그걸 아쉬운 결과로 봤어, 아니면 <span class="nowrap">‘음성 IP 기술 데모’</span>로 남겼어?</li>
+    <li>플레이브·이세계아이돌은 왜 됐다고 봐? HYBE는 그 ‘리얼 퍼슨 뒤에 두는’ 모델을 왜 안(못) 갔어?</li>
+  </ol>
+
+  <h3>C. HYBE 엔터테크 전략 (Supertone·Weverse·보이스 IP)</h3>
+  <ol class="q">
+    <li>HYBE가 “엔터테크” 선언하고 Supertone·위버스에 크게 걸었잖아. <strong>실제로 돈이 되는 건</strong> 뭐고, 아직 성과가 약한 건 뭐야?</li>
+    <li>Supertone 음성 기술을 <span class="nowrap">아이돌 소비자 상품</span>(예: 최애 목소리 구독)으로 왜 안 냈을까? 내부에서 그 논의가 있었어, 아니면 <span class="nowrap">B2B 툴</span>로만 갈 이유가 명확했어?</li>
+    <li>위버스가 첫 흑자 냈다는데, 그 수익의 실제 엔진이 <span class="nowrap">멤버십·광고·MD</span> 중 뭐야? 팬이 진짜 지갑 여는 지점은 어디야?</li>
+    <li>HYBE가 접은 것(NFT·메타버스) — 안에서는 언제, 왜 “이건 아니다”가 됐어? 신호가 뭐였어?</li>
+  </ol>
+
+  <h3>D. 조직·의사결정·커리어</h3>
+  <ol class="q">
+    <li>엔터사에서 <strong>기술 제안이 실제로 통과</strong>되려면 뭐가 있어야 해? (데이터? 위 사람 후원? 아티스트 동의?) 밖에서 온 사람이 제일 많이 헛짚는 게 뭐야?</li>
+    <li>‘CTO 스태프’ 같은 자리는 결국 뭘 잘해야 살아남아? 내가 지금 준비하는 방향(발굴→검증→프로토타입→연결)이 그 자리 현실이랑 맞아?</li>
+    <li>내 발표 듣고, 형이 면접관이면 제일 먼저 던질 <span class="nowrap">‘공격 질문’</span> 하나가 뭐야?</li>
+  </ol>
+</section>
+
+<!-- ───────────────────────── 4 ───────────────────────── -->
+<section>
+  <h2><span class="num">04</span> 내가 조사한 시장 사실 — 형과 크로스체크</h2>
+  <div class="h2title">버추얼 아이돌, 지금 어떤가 &amp; 신디에잇은 잘 됐나</div>
+
+  <p class="lead">결론부터: <strong>버추얼 아이돌 시장은 크게 크는 중인데, 그 안에서 명암이 극명하게 갈렸음.</strong> 그리고 그 갈림이 <span class="accent">내 발표 논지를 그대로 증명함.</span></p>
+
+  <div class="panel">
+    <div class="tag">시장 규모</div>
+    <div class="stat"><div class="big pos">1.5조 → 5.6조</div><div class="desc">국내 버추얼 아이돌·버튜버 시장, <strong>2023 → 2029</strong> 전망 (약 3.7배). 죽은 건 ‘메타버스’지 ‘버추얼 아이돌’이 아님.</div></div>
+  </div>
+
+  <h3>성공한 쪽 — 뒤에 <span class="accent">진짜 사람</span>이 있음</h3>
+  <div class="stat"><div class="big pos">100만 장+</div><div class="desc"><strong>플레이브(PLAVE)</strong> 2025.2 미니앨범 판매. KSPO돔·고척돔 공연 = <span class="nowrap">버추얼의 대형 공연장 진입</span>. 소속사 Blast 매출 <strong>454억</strong>·영업이익 99억.</div></div>
+  <div class="stat"><div class="big pos">음반 1위</div><div class="desc"><strong>이세계아이돌</strong> 2025 미니앨범 ‘Be&nbsp;My&nbsp;Light’ 음반 판매 1위 — 스트레이키즈 등 제침. 고척돔 페스티벌.</div></div>
+  <p>둘 다 <strong>모션·목소리·인격이 실제 사람</strong>인 아바타. 팬은 캐릭터 뒤의 ‘진짜’와 관계를 맺음.</p>
+
+  <h3>고전한 쪽 — <span class="dead">순수 AI</span></h3>
+  <div class="stat"><div class="big neg">신디에잇</div><div class="desc"><strong>SYNDI8</strong> · HYBE 자회사 <strong>Supertone</strong> · 2024.6.27 데뷔 · 4인(카나리·네스트·고요·레이븐) · NANSY 음성합성 · Nansy&nbsp;Land 세계관 · <span class="nowrap">100% AI 합성</span>.</div></div>
+  <ul>
+    <li>데뷔 직후 <strong>표절·유사성 논란</strong>: 멤버 ‘카나리’ 프로필(키·MBTI 등)이 <span class="nowrap">에스파 카리나</span>와 유사, 캐릭터 ‘촐싹맨’이 유튜버 <span class="nowrap">침착맨</span> 연상 → 데뷔 전부터 표절 시비.</li>
+    <li>명칭도 세븐틴 서브유닛과 겹친다는 지적 등, <strong>대중·팬덤 반응이 기대만큼은 아니었음</strong>. “아이돌보다 기술 데모에 가깝다”는 평도 있었음.</li>
+    <li>이후 <span class="nowrap">대형 히트·대형 공연</span> 같은 성과 신호 없음 — <strong>크게 확산되진 못한</strong> 편 <span class="dead">(형이 안에서 본 실제 상황으로 확인 부탁)</span>.</li>
+  </ul>
+
+  <div class="take">
+    <div class="tag">그래서 내 발표에 어떻게 쓰나</div>
+    <p><em class="mark">“기술을 전면에 세운 순수 AI(신디에잇)는 시들고, 진짜 사람과 소속감이 있는 버추얼(플레이브)은 산다.”</em> — 내가 개인 경험(음성합성 실패)으로 말한 걸, <strong>업계 최신 사례가 그대로 증명</strong>해줌. 이건 HYBE가 수업료 내고 확인해준 거라, 발표 S3·S6에 <span class="accent">최신 케이스로 얹으면 논지가 ‘개인 일화’에서 ‘산업 법칙’으로 격상</span>됨.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>구분</th><th>순수 AI (신디에잇)</th><th>진짜 사람+아바타 (플레이브·이세돌)</th></tr></thead>
+    <tbody>
+      <tr><td>정체</td><td class="dead">AI 합성 음성·캐릭터</td><td class="win">모캡·라이브 하는 <b>실존 인물</b></td></tr>
+      <tr><td>팬 관계</td><td class="dead">‘가짜’ 거부감, 파라소셜 약함</td><td class="win"><b>진짜 인격</b>과의 실시간 소통</td></tr>
+      <tr><td>성과</td><td class="dead">표절 논란 이후 뚜렷한 히트 없음</td><td class="win">앨범 <b>100만+</b>, <b>고척돔</b></td></tr>
+      <tr><td>내 논지에</td><td class="dead">“기술 전면 = 시듦”의 증거</td><td class="win">“진짜+소속감 = 삶”의 증거</td></tr>
+    </tbody>
+  </table>
+
+  <p class="callnote">※ 참고 — HYBE IM(게임 자회사)은 리듬하이브·인더섬을 만들고, MIDNATT(다국어 AI 아티스트, 2023.5)도 HYBE 쪽 시도임. 형이 말한 게 신디에잇이 아니라 이 중 하나일 수도 있으니 A파트에서 먼저 확인.</p>
+</section>
+
+<!-- ───────────────────────── sources ───────────────────────── -->
+<div class="foot">
+  <p style="font-weight:700;color:var(--ink-2);letter-spacing:.02em">출처 (2026.07 조회)</p>
+  <ul>
+    <li>SYNDI8 데뷔·NANSY·논란 — Music Business Worldwide, allkpop, Dataconomy, HuffPost Korea, 뉴시스 (2024.6~7)</li>
+    <li>플레이브·Blast 실적, 고척돔 — 머니투데이, ZDNet Korea, 다음뉴스 (2025)</li>
+    <li>이세계아이돌 음반 1위 — 뉴스핌 (2025.11)</li>
+    <li>버추얼 시장 규모(1.5→5.6조) — 서울과기대 신문 / 마케팅 인사이드</li>
+    <li>HYBE IM(게임)·MIDNATT — 나무위키 HYBE IM, 뷰어스 (2024~2025)</li>
+  </ul>
+  <p style="margin-top:10px">내부 PT 준비 자료: <code>pt-jyp-cto-staff-script.md</code> · <code>pt-jyp-cto-staff-research-brief.md</code></p>
+</div>
+
+</div>
+</body>
+</html>
